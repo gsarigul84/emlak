@@ -21,7 +21,15 @@ class EmlaktipleriResource extends Resource
     protected static ?string $model = Emlaktipleri::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
-
+    protected static ?int $navigationSort = 97;
+    protected static function getNavigationGroup(): string
+    {
+      return __('menu.ayarlar');
+    }
+    protected static function getNavigationLabel(): string
+    {
+      return __('menu.emlaktipleri');
+    }
     public static function form(Form $form): Form
     {
       $schema = [];

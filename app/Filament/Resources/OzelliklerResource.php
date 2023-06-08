@@ -20,8 +20,16 @@ class OzelliklerResource extends Resource
 {
   protected static ?string $model = Ozellikler::class;
 
-  protected static ?string $navigationIcon = 'heroicon-o-collection';
-
+  protected static ?string $navigationIcon = 'heroicon-o-check-circle';
+  protected static ?int $navigationSort = 92;
+  protected static function getNavigationGroup(): string
+  {
+    return __('menu.ayarlar');
+  }
+  protected static function getNavigationLabel(): string
+  {
+    return __('menu.ozellikler');
+  }
   public static function form(Form $form): Form
   {
     $schema = [];

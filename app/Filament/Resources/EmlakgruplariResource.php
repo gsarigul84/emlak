@@ -24,7 +24,15 @@ class EmlakgruplariResource extends Resource
   protected static ?string $model = Emlakgruplari::class;
 
   protected static ?string $navigationIcon = 'heroicon-o-collection';
-
+  protected static ?int $navigationSort = 98;
+  protected static function getNavigationGroup(): string
+  {
+    return __('menu.ayarlar');
+  }
+  protected static function getNavigationLabel(): string
+  {
+    return __('menu.emlakgruplari');
+  }
   public static function form(Form $form): Form
   {
     $schema = [];

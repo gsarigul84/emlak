@@ -17,7 +17,18 @@ class DillerResource extends Resource
 {
     protected static ?string $model = Diller::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-globe-alt';
+
+    protected static ?int $navigationSort = 99;
+    protected static function getNavigationGroup(): string
+    {
+      return __('menu.ayarlar');
+    }
+    protected static function getNavigationLabel(): string
+    {
+      return __('menu.diller');
+    }
+
 
     public static function form(Form $form): Form
     {

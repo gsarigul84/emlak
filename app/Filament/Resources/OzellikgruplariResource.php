@@ -20,8 +20,16 @@ class OzellikgruplariResource extends Resource
 {
   protected static ?string $model = Ozellikgruplari::class;
 
-  protected static ?string $navigationIcon = 'heroicon-o-collection';
-
+  protected static ?string $navigationIcon = 'heroicon-o-folder';
+  protected static ?int $navigationSort = 93;
+  protected static function getNavigationGroup(): string
+  {
+    return __('menu.ayarlar');
+  }
+  protected static function getNavigationLabel(): string
+  {
+    return __('menu.ozellikgruplari');
+  }
   public static function form(Form $form): Form
   {
     $schema = [];

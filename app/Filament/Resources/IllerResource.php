@@ -20,8 +20,16 @@ class IllerResource extends Resource
 {
   protected static ?string $model = Iller::class;
 
-  protected static ?string $navigationIcon = 'heroicon-o-collection';
-
+  protected static ?string $navigationIcon = 'heroicon-o-map';
+  protected static ?int $navigationSort = 96;
+  protected static function getNavigationGroup(): string
+  {
+    return __('menu.ayarlar');
+  }
+  protected static function getNavigationLabel(): string
+  {
+    return __('menu.iller');
+  }
   public static function form(Form $form): Form
   {
     $schema = [];

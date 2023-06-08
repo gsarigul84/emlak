@@ -21,8 +21,16 @@ class IlcelerResource extends Resource
 {
     protected static ?string $model = Ilceler::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
-
+    protected static ?string $navigationIcon = 'heroicon-o-map';
+    protected static ?int $navigationSort = 95;
+    protected static function getNavigationGroup(): string
+    {
+      return __('menu.ayarlar');
+    }
+    protected static function getNavigationLabel(): string
+    {
+      return __('menu.ilceler');
+    }
     public static function form(Form $form): Form
     {
         $schema = [];

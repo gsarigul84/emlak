@@ -22,8 +22,16 @@ class MahallelerResource extends Resource
 {
   protected static ?string $model = Mahalleler::class;
 
-  protected static ?string $navigationIcon = 'heroicon-o-collection';
-
+  protected static ?string $navigationIcon = 'heroicon-o-location-marker';
+  protected static ?int $navigationSort = 94;
+  protected static function getNavigationGroup(): string
+  {
+    return __('menu.ayarlar');
+  }
+  protected static function getNavigationLabel(): string
+  {
+    return __('menu.mahalleler');
+  }
   public static function form(Form $form): Form
   {
     $schema = [];
