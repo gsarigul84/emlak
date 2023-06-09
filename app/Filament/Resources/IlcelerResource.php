@@ -38,7 +38,7 @@ class IlcelerResource extends Resource
         foreach($diller as $dil){
           $schema[] = Forms\Components\TextInput::make('ilceadlari.'.$dil->dilkodu)
           ->required()
-          ->label(__('ilceadi').' - '.$dil->diladi)
+          ->label(__('form.ilceadi').' - '.$dil->diladi)
           ->maxLength(255);
         }
         
@@ -46,7 +46,7 @@ class IlcelerResource extends Resource
         return $form
             ->schema(array_merge([
               Forms\Components\Select::make('il_id')
-              ->label(__('il'))
+              ->label(__('form.il'))
               ->options(function(): array{
                 $options = [];
                 $iller = Iller::all();
@@ -57,15 +57,15 @@ class IlcelerResource extends Resource
               })
               ->required(),
             ],
-            $schema));
+            $schema))->columns(1);
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('il.iladi'),
-                Tables\Columns\TextColumn::make('ilceadi')
+                Tables\Columns\TextColumn::make('il.iladi')->label(__('form.il')),
+                Tables\Columns\TextColumn::make('ilceadi')->label(__('form.ilceadi'))
                   ->formatStateUsing(fn (string $state, Model $record) =>  __('ilceler.'.$record->id)),
                 // Tables\Columns\TextColumn::make('created_at')
                 //     ->dateTime(),

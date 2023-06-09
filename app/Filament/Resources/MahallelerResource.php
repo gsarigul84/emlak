@@ -39,7 +39,7 @@ class MahallelerResource extends Resource
     foreach ($diller as $dil) {
       $schema[] = Forms\Components\TextInput::make('mahalleadlari.' . $dil->dilkodu)
         ->required()
-        ->label(__('mahalleadi') . ' - ' . $dil->diladi)
+        ->label(__('form.mahalleadi') . ' - ' . $dil->diladi)
         ->maxLength(255);
     }
 
@@ -56,6 +56,7 @@ class MahallelerResource extends Resource
           })
           ->afterStateUpdated(fn (callable $set) => $set('ilce_id', null))
           ->reactive()
+          ->label(__('form.il'))
           ->required(),
 
         Forms\Components\Select::make('ilce_id')
@@ -68,17 +69,18 @@ class MahallelerResource extends Resource
             }
             return [];
           })
+          ->label(__('form.ilce'))
           ->required(),
-      ], $schema));
+      ], $schema))->columns(1);
   }
 
   public static function table(Table $table): Table
   {
     return $table
       ->columns([
-        Tables\Columns\TextColumn::make('il.iladi'),
-        Tables\Columns\TextColumn::make('ilce.ilceadi'),
-        Tables\Columns\TextColumn::make('mahalleadi'),
+        Tables\Columns\TextColumn::make('il.iladi')->label(__('form.il')),
+        Tables\Columns\TextColumn::make('ilce.ilceadi')->label(__('form.ilce')),
+        Tables\Columns\TextColumn::make('mahalleadi')->label(__('form.mahalleadi')),
         // Tables\Columns\TextColumn::make('created_at')
         //   ->dateTime(),
         // Tables\Columns\TextColumn::make('updated_at')

@@ -38,7 +38,7 @@ class EmlaktipleriResource extends Resource
         $schema[] = Forms\Components\TextInput::make('emlaktipleri.' . $dil->dilkodu)
           ->required()
           ->maxLength(255)
-          ->label(__('emlaktipiadi') . ' - ' . $dil->diladi);
+          ->label(__('form.emlaktipiadi') . ' - ' . $dil->diladi);
       }
       return $form
         ->schema(
@@ -56,16 +56,16 @@ class EmlaktipleriResource extends Resource
           ],
             $schema
           )
-        );
+        )->columns(1);
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('emlaktipi')
+                Tables\Columns\TextColumn::make('emlaktipi')->label(__('form.emlaktipi'))
                 ->formatStateUsing(fn (string $state, Model $record) => __('emlaktipleri.'.$record->id) ),
-                Tables\Columns\TextColumn::make('grup_id')
+                Tables\Columns\TextColumn::make('grup_id')->label(__('form.grup'))
                   ->formatStateUsing(fn (string $state, Model $record) => __('emlakgrubu.'.$record->grup_id) ),
             ])
             ->filters([

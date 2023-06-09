@@ -11,10 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('diller', function (Blueprint $table) {
+        Schema::create('emlak', function (Blueprint $table) {
             $table->id();
-            $table->string('diladi');
-            $table->string('dilkodu');
+            $table->integer('grup_id');
+            $table->integer('tip_id');
+            $table->integer('il_id');
+            $table->integer('ilce_id');
+            $table->integer('mahalle_id');
+            $table->string('ilan_no');
+            $table->string('ilantipi');
+            $table->json('kordinatlar');
             $table->timestamps();
         });
     }
@@ -24,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('diller');
+        Schema::dropIfExists('emlak');
     }
 };

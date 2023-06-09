@@ -35,9 +35,11 @@ class DillerResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('diladi')
+                    ->label(__('form.diladi'))
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('dilkodu')
+                    ->label(__('form.dilkodu'))
                     ->required()
                     ->maxLength(255),
             ]);
@@ -47,12 +49,12 @@ class DillerResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('diladi'),
-                Tables\Columns\TextColumn::make('dilkodu'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+                Tables\Columns\TextColumn::make('diladi')->label(__('form.diladi')),
+                Tables\Columns\TextColumn::make('dilkodu')->label(__('form.dilkodu')),
+                // Tables\Columns\TextColumn::make('created_at')->label(__('form.olusturulma_tarihi'))
+                //     ->dateTime(),
+                // Tables\Columns\TextColumn::make('updated_at')->label(__('form.guncelleme_tarihi'))
+                //     ->dateTime(),
             ])
             ->filters([
                 //

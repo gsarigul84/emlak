@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('emlakgruplari', function (Blueprint $table) {
             $table->id();
             $table->string('grupadi');
-            $table->json('ozellikgruplari');
+            $table->json('ozellikgruplari')->nullable();
+            $table->json('nitelikler')->nullable();
             $table->timestamps();
         });
     }

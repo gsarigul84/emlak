@@ -38,17 +38,17 @@ class IllerResource extends Resource
       $schema[] = Forms\Components\TextInput::make('iladlari.' . $dil->dilkodu)
         ->required()
         ->maxLength(255)
-        ->label(__('iladi') . ' - ' . $dil->diladi);
+        ->label(__('form.iladi') . ' - ' . $dil->diladi);
     }
     return $form
-      ->schema($schema);
+      ->schema($schema)->columns(1);
   }
 
   public static function table(Table $table): Table
   {
     return $table
       ->columns([
-        Tables\Columns\TextColumn::make('iladi')
+        Tables\Columns\TextColumn::make('iladi')->label(__('form.iladi'))
         ->formatStateUsing(fn (string $state, Model $record) => __('iller.'.$record->id) ),
       ])
       ->filters([

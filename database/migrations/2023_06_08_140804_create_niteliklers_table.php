@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('nitelikler', function (Blueprint $table) {
             $table->id();
             $table->string('nitelikadi');
-            $table->boolean('secimli')->default(false);
-            $table->json('degerler');
+            $table->string('tip');
+            $table->json('degerler')->nullable();
             $table->timestamps();
         });
     }

@@ -38,7 +38,7 @@ class OzelliklerResource extends Resource
       $schema[] = Forms\Components\TextInput::make('ozellikadlari.' . $dil->dilkodu)
         ->required()
         ->maxLength(255)
-        ->label(__('ozellikadi') . ' - ' . $dil->diladi);
+        ->label(__('form.ozellikadi') . ' - ' . $dil->diladi);
     }
 
     return $form
@@ -49,19 +49,20 @@ class OzelliklerResource extends Resource
               ->map(fn ($item) => ['id' => $item->id, 'grupadi' => __('ozellikgruplari.' . $item->id)])
               ->pluck('grupadi', 'id');
           })
+          ->label(__('form.grup'))
           ->required(),
-      ], $schema));
+      ], $schema))->columns(1);
   }
 
   public static function table(Table $table): Table
   {
     return $table
       ->columns([
-        Tables\Columns\TextColumn::make('grup_id')
+        Tables\Columns\TextColumn::make('grup_id')->label(__('form.grup'))
           ->formatStateUsing(function (string $state, Model $record) {
             return __('ozellikgruplari.' . $record->grup_id);
           }),
-        Tables\Columns\TextColumn::make('ozellikadi')
+        Tables\Columns\TextColumn::make('ozellikadi')->label(__('form.ozellikadi'))
           ->formatStateUsing(function (string $state, Model $record) {
             return __('ozellik.' . $record->id);
           }),

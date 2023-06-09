@@ -36,19 +36,19 @@ class OzellikgruplariResource extends Resource
     $diller = Diller::all();
     foreach ($diller as $dil) {
       $schema[] = Forms\Components\TextInput::make('grupadlari.' . $dil->dilkodu)
-        ->label(__('grupadi') . ' - ' . $dil->diladi)
+        ->label(__('form.grupadi') . ' - ' . $dil->diladi)
         ->required()
         ->maxLength(255);
     }
     return $form
-      ->schema($schema);
+      ->schema($schema)->columns(1);
   }
 
   public static function table(Table $table): Table
   {
     return $table
       ->columns([
-        Tables\Columns\TextColumn::make('grupadi'),
+        Tables\Columns\TextColumn::make('grupadi')->label(__('form.grupadi')),
         // Tables\Columns\TextColumn::make('created_at')
         //     ->dateTime(),
         // Tables\Columns\TextColumn::make('updated_at')
@@ -82,7 +82,7 @@ class OzellikgruplariResource extends Resource
         }),
       ])
       ->bulkActions([
-        Tables\Actions\DeleteBulkAction::make(),
+        // Tables\Actions\DeleteBulkAction::make(),
       ]);
   }
 

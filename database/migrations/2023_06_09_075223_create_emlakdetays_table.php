@@ -11,10 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('diller', function (Blueprint $table) {
+        Schema::create('emlakdetay', function (Blueprint $table) {
             $table->id();
-            $table->string('diladi');
+            $table->integer('emlak_id');
             $table->string('dilkodu');
+            $table->string('sef');
+            $table->string('baslik');
+            $table->text('aciklama');
+            $table->mediumText('detay');
             $table->timestamps();
         });
     }
@@ -24,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('diller');
+        Schema::dropIfExists('emlakdetay');
     }
 };

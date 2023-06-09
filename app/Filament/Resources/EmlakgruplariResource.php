@@ -41,7 +41,7 @@ class EmlakgruplariResource extends Resource
       $schema[] = Forms\Components\TextInput::make('emlakgruplari.' . $dil->dilkodu)
         ->required()
         ->maxLength(255)
-        ->label(__('grupadi') . ' - ' . $dil->diladi);
+        ->label(__('form.grupadi') . ' - ' . $dil->diladi);
     }
 
     return $form
@@ -53,16 +53,22 @@ class EmlakgruplariResource extends Resource
               fn () => \App\Models\Ozellikgruplari::all()
                 ->map(fn ($item) => ['id' => $item->id, 'grupadi' => __('ozellikgruplari.' . $item->id)])
                 ->pluck('grupadi', 'id')
+            ),
+          CheckboxList::make('nitelikler')
+            ->options(
+              fn () => \App\Models\Nitelikler::all()
+                ->map(fn ($item) => ['id' => $item->id, 'nitelikadi' => __('nitelik.' . $item->id)])
+                ->pluck('nitelikadi', 'id')
             )
         ]
-      ));
+      ))->columns(1);
   }
 
   public static function table(Table $table): Table
   {
     return $table
       ->columns([
-        Tables\Columns\TextColumn::make('grupadi')
+        Tables\Columns\TextColumn::make('grupadi')->label(__('form.grupadi'))
           ->formatStateUsing(function (string $state, Model $record) {
             return __('emlakgrubu.'.$record->id);
           }),

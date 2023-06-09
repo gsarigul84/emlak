@@ -9,7 +9,7 @@ class Nitelikler extends Model
 {
     use HasFactory;
     protected $table = 'nitelikler';
-    protected $fillable = ['nitelikadi', 'degerler'];
+    protected $fillable = ['nitelikadi','tip', 'degerler'];
     protected $casts = [
         'degerler' => 'array',
     ];

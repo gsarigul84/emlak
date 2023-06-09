@@ -9,8 +9,9 @@ class Emlakgruplari extends Model
 {
     use HasFactory;
     protected $table = 'emlakgruplari';
-    protected $fillable = ['grupadi', 'ozellikgruplari'];
+    protected $fillable = ['grupadi', 'ozellikgruplari', 'nitelikler'];
     public $casts = [
-        'ozellikgruplari' => 'array'
+        'ozellikgruplari' => 'array',
+        'nitelikler' => 'array',
     ];
 }

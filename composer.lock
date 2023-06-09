@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aa85e0a1e1e82480c901a23c4c2c4f55",
+    "content-hash": "2cae4c2fc5bc6394e99f79f309b878be",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -1651,6 +1651,50 @@
                 }
             ],
             "time": "2021-10-07T12:57:01+00:00"
+        },
+        {
+            "name": "humaidem/filament-map-picker",
+            "version": "v0.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/humaidem/filament-map-picker.git",
+                "reference": "9925e4f098076c817262a04cdedd0514161706c5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/humaidem/filament-map-picker/zipball/9925e4f098076c817262a04cdedd0514161706c5",
+                "reference": "9925e4f098076c817262a04cdedd0514161706c5",
+                "shasum": ""
+            },
+            "require-dev": {
+                "filament/filament": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Humaidem\\FilamentMapPicker\\FilamentMapPickerServiceProvider"
+                    ],
+                    "aliases": {
+                        "MapPicker": "Humaidem\\FilamentMapPicker\\Facades\\MapPicker"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Humaidem\\FilamentMapPicker\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "homepage": "https://github.com/humaidem/filament-map-picker",
+            "support": {
+                "issues": "https://github.com/humaidem/filament-map-picker/issues",
+                "source": "https://github.com/humaidem/filament-map-picker"
+            },
+            "time": "2022-03-10T15:25:34+00:00"
         },
         {
             "name": "kenepa/translation-manager",
