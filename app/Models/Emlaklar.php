@@ -4,14 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Emlaklar extends Model
 {
+    use InteractsWithMedia;
     use HasFactory;
     protected $table = 'emlak';
     protected $fillable = [
         'grup_id',
         'tip_id',
+        'ilantipi',
         'ilan_no',
         'il_id',
         'ilce_id',
