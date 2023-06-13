@@ -71,7 +71,8 @@ class OzelliklerResource extends Resource
         //
       ])
       ->actions([
-        Tables\Actions\EditAction::make()->mutateRecordDataUsing(function (array $data): array {
+        Tables\Actions\EditAction::make()
+        ->mutateRecordDataUsing(function (array $data): array {
           $data['ozellikadlari'] = LanguageLine::where('group', 'ozellik')
             ->where('key', $data['id'])
             ->first()

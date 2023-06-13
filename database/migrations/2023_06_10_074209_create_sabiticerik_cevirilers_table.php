@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sabiticerik_ceviriler', function (Blueprint $table) {
+        Schema::create('sabiticerik_detay', function (Blueprint $table) {
             $table->id();
             $table->integer('icerik_id');
             $table->string('dilkodu');
-            $table->string('sefuri');
-            $table->string('description');
-            $table->string('baslik');
-            $table->mediumText('aciklama');
+            $table->string('sef')->nullable();
+            $table->string('aciklama')->nullable();
+            $table->string('baslik')->nullable();
+            $table->mediumText('icerik');
             $table->timestamps();
         });
     }

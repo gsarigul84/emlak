@@ -15,7 +15,10 @@ class ManageFiyatlandirmas extends ManageRecords
     protected function getActions(): array
     {
         return [
-            Actions\CreateAction::make()->mutateFormDataUsing(function (array $data): array {
+            Actions\CreateAction::make()
+            ->modalHeading(__('form.yeni_ekle'))
+            ->label(__('form.yeni_ekle'))
+            ->mutateFormDataUsing(function (array $data): array {
               $data['sembol'] = reset($data['semboladlari']);
               return $data;
             })

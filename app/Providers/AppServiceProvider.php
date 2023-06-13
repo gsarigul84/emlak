@@ -24,8 +24,8 @@ class AppServiceProvider extends ServiceProvider
         //
         Gate::define('use-translation-manager', function (?User $user) {
           // Your authorization logic
-          return true;
-          // return $user !== null && $user->hasRole('admin');
+          // return true;
+          return $user !== null && $user->is_admin;
       });
     }
 }

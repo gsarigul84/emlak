@@ -18,9 +18,10 @@ return new class extends Migration
             $table->integer('il_id');
             $table->integer('ilce_id');
             $table->integer('mahalle_id');
-            $table->string('ilan_no');
+            $table->string('ilan_no')->nullable();
             $table->string('ilantipi');
-            $table->json('kordinatlar');
+            $table->json('koordinatlar');
+            $table->boolean('durum');
             $table->timestamps();
         });
     }

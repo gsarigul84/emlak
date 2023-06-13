@@ -29,7 +29,11 @@ class DillerResource extends Resource
       return __('menu.diller');
     }
 
-
+    public function __construct()
+    {
+      parent::__construct();
+      $this->modelLabel = __('form.yeni_ekle');
+    }
     public static function form(Form $form): Form
     {
         return $form

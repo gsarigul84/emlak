@@ -16,6 +16,8 @@ class ManageEmlakgruplaris extends ManageRecords
     {
         return [
             Actions\CreateAction::make()
+            ->label(__('form.yeni_ekle'))
+            ->modalHeading(__('form.yeni_ekle'))
             ->mutateFormDataUsing(function (array $data): array {
               $data['grupadi'] = reset($data['emlakgruplari']);
               return $data;

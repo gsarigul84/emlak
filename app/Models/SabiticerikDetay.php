@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SabiticerikCeviriler extends Model
+class SabiticerikDetay extends Model
 {
     use HasFactory;
-    protected $table = 'sabiticerik_ceviriler';
-    protected $fillable = ['icerik_id', 'dilkodu', 'sefuri', 'description', 'baslik', 'aciklama'];
+    protected $table = 'sabiticerik_detay';
+    protected $fillable = ['icerik_id', 'dilkodu', 'sef', 'aciklama', 'baslik', 'icerik'];
 
     public function icerik()
     {

@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->integer('emlak_id');
             $table->integer('nitelik_id');
-            $table->string('anahtar');
             $table->string('deger');
             $table->timestamps();
         });

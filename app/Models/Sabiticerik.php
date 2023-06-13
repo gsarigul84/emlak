@@ -13,6 +13,6 @@ class Sabiticerik extends Model
 
     public function ceviriler()
     {
-        return $this->hasMany(SabiticerikCeviriler::class, 'icerik_id', 'id');
+        return $this->hasMany(SabiticerikDetay::class, 'icerik_id', 'id');
     }
 }

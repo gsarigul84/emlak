@@ -10,4 +10,10 @@ return [
   'emlaktipleri' => 'Emlak tipleri',
   'ozellikgruplari' => 'Özellik grupları',
   'ozellikler' => 'Özellikler',
+  'fiyatlandirma' => 'Fiyatlandırma',
+  'nitelikler' => 'Nitelikler',
+  'sabiticerik' => 'Sabit içerikler',
+  'emlaklar' => 'Emlaklar',
+  'anasayfa' => 'Anasayfa',
+  'kullanicilar' => 'Kullanıcılar',
 ];

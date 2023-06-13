@@ -10,7 +10,7 @@ class Emlaknitelikleri extends Model
     use HasFactory;
 
     protected $table = 'emlaknitelikleri';
-    protected $fillable = ['emlak_id', 'nitelik_id', 'deger', 'anahtar'];
+    protected $fillable = ['emlak_id', 'nitelik_id', 'deger'];
 
     public function nitelik()
     {

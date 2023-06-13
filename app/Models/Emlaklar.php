@@ -4,9 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Emlaklar extends Model
+class Emlaklar extends Model implements HasMedia
 {
     use InteractsWithMedia;
     use HasFactory;
@@ -19,41 +20,40 @@ class Emlaklar extends Model
         'il_id',
         'ilce_id',
         'mahalle_id',
-        'kooordinatlar',
+        'koordinatlar',
+        'gorseller',
+        'durum',
     ];
 
     protected $casts = [
-        'kooordinatlar' => 'array',
+        'koordinatlar' => 'array',
+        'gorseller' => 'array',
     ];
 
     public function grup()
     {
-        return $this->belongsTo(EmlakGruplari::class, 'grup_id');
+        return $this->belongsTo(Emlakgruplari::class, 'grup_id');
     }
 
     public function tip()
     {
-        return $this->belongsTo(EmlakTipleri::class, 'tip_id');
+        return $this->belongsTo(Emlaktipleri::class, 'tip_id');
     }
 
     public function detay()
     {
-        return $this->hasMany(EmlakDetaylari::class, 'emlak_id');
+        return $this->hasMany(Emlakdetay::class, 'emlak_id');
     }
 
-    public function gorseller()
-    {
-        return $this->hasMany(EmlakGorselleri::class, 'emlak_id');
-    }
 
     public function ozellikler()
     {
-        return $this->hasMany(EmlakOzellikleri::class, 'emlak_id');
+        return $this->hasMany(Emlakozellikleri::class, 'emlak_id');
     }
 
     public function nitelikler()
     {
-        return $this->hasMany(EmlakNitelikleri::class, 'emlak_id');
+        return $this->hasMany(Emlaknitelikleri::class, 'emlak_id');
     }
 
     public function il()

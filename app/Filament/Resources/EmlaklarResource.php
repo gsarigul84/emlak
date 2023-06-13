@@ -26,13 +26,19 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Humaidem\FilamentMapPicker\Fields\OSMMap;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Tables\Filters\SelectFilter;
 
 class EmlaklarResource extends Resource
 {
   protected static ?string $model = Emlaklar::class;
 
   protected static ?string $navigationIcon = 'heroicon-o-collection';
-
+  protected static ?int $navigationSort = 1;
+    
+  protected static function getNavigationLabel(): string
+  {
+    return __('menu.emlaklar');
+  }
 
   public static function getEmlaktipiRow(): array
   {
@@ -133,15 +139,19 @@ class EmlaklarResource extends Resource
               'zoomSnap'            => 0.25,
               'wheelPxPerZoomLevel' => 60
             ])
-            ->afterStateHydrated(function ($state, callable $set) {
-              $set('koordinatlar', ['lat' => 36.854018, 'lng' => 30.799940]);
-            })
-            // ->afterStateUpdated(function ($state, callable $set) {
-            //   // dd($state);
-            //   // $set('koordinatlar', ['lat' => $state->getLat(), 'lng' => $state->getLng()]);
-            // })
             ->tilesUrl('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}')
         ])
+    ];
+  }
+  public static function getIlanBilgileri(): array
+  {
+    return [
+      Grid::make()
+        ->columns(3)
+        ->schema([
+          Forms\Components\TextInput::make('ilan_no')
+            ->label(__('form.ilan_no')),
+        ]),
     ];
   }
 
@@ -152,7 +162,7 @@ class EmlaklarResource extends Resource
         ->columns(3)
         ->schema([
           ...Fiyatlandirma::where('durum', true)->get()->map(function ($fiyatlandirma) {
-            return Forms\Components\TextInput::make('fiyatlar.' . $fiyatlandirma->id)
+            return Forms\Components\TextInput::make('fiyatlar.' . $fiyatlandirma->sembol)
               ->label(__('form.fiyat').' - ' . $fiyatlandirma->sembol)
               ->required();
           })->toArray(),
@@ -166,7 +176,8 @@ class EmlaklarResource extends Resource
       Grid::make()
         ->columns(1)
         ->schema([
-          SpatieMediaLibraryFileUpload::make('attachments')
+          Forms\Components\FileUpload::make('gorseller')
+            ->label(__('form.gorseller'))
             ->multiple()
             ->image()
             ->enableReordering(),
@@ -191,7 +202,7 @@ class EmlaklarResource extends Resource
           Forms\Components\TextInput::make('baslik.' . $dil->dilkodu)
             ->label(__('form.baslik'))
             ->required(),
-          Forms\Components\RichEditor::make('icerik' . $dil->dilkodu)
+          Forms\Components\RichEditor::make('detay.' . $dil->dilkodu)
             ->label(__('form.icerik'))
             ->required(),
         ]);
@@ -220,7 +231,7 @@ class EmlaklarResource extends Resource
         return $get('grup_id') && in_array($og->id, $emlakgruplari[$get('grup_id')]->ozellikgruplari);
       })
       ->options($ozellikler[$og->id] ? collect($ozellikler[$og->id])->map(fn ($item) => [
-        'anahtar' => $item,
+        'anahtar' => $item->id,
         'deger' => __('ozellik.' . $item->id)
       ])->pluck('deger', 'anahtar') : []);
     }
@@ -295,6 +306,7 @@ class EmlaklarResource extends Resource
       ->schema(
         [
           ...static::getEmlaktipiRow(),
+          ...static::getIlanBilgileri(),
           ...static::getLokasyonBilgileri(),
           ...static::getFiyatlandirmaRow(),
           ...static::getIcerikRow(),
@@ -309,23 +321,33 @@ class EmlaklarResource extends Resource
   {
     return $table
       ->columns([
-        Tables\Columns\TextColumn::make('grup_id'),
-        Tables\Columns\TextColumn::make('tip_id'),
-        Tables\Columns\TextColumn::make('ilan_no'),
-        Tables\Columns\TextColumn::make('il_id'),
-        Tables\Columns\TextColumn::make('ilce_id'),
-        Tables\Columns\TextColumn::make('mahalle_id'),
-        Tables\Columns\TextColumn::make('kordinatlar'),
+        Tables\Columns\TextColumn::make('ilan_no')->label(__('form.ilan_no')),
+        Tables\Columns\TextColumn::make('grup.grupadi')->label(__('form.grup')),
+        Tables\Columns\TextColumn::make('tip.emlaktipi')->label(__('form.emlaktipi')),
+        Tables\Columns\TextColumn::make('il.iladi')->label(__('form.il')),
+        Tables\Columns\TextColumn::make('ilce.ilceadi')->label(__('form.ilce')),
+        Tables\Columns\TextColumn::make('mahalle.mahalleadi')->label(__('form.mahalle')),
+        // Tables\Columns\TextColumn::make('koordinatlar'),
         Tables\Columns\TextColumn::make('created_at')
-          ->dateTime(),
-        Tables\Columns\TextColumn::make('updated_at')
+          ->label(__('form.olusturulma_tarihi'))
           ->dateTime(),
       ])
       ->filters([
-        //
+        SelectFilter::make('grup_id')
+          ->options(fn() => Emlakgruplari::all()->map(fn ($item) => [
+            'anahtar' => $item->id,
+            'deger' => $item->grupadi
+          ])->pluck('deger', 'anahtar')),
+        SelectFilter::make('il_id')
+          ->options(fn() => Iller::all()->map(fn ($item) => [
+            'anahtar' => $item->id,
+            'deger' => $item->iladi
+          ])->pluck('deger', 'anahtar')),
+          
       ])
       ->actions([
         Tables\Actions\EditAction::make(),
+        Tables\Actions\DeleteAction::make(),
       ])
       ->bulkActions([
         // Tables\Actions\DeleteBulkAction::make(),
