@@ -93,9 +93,10 @@ class EmlaklarResource extends Resource
 							foreach ($iller as $i) {
 								$options[$i->id] = __('iller.'.$i->id);
 							}
+
 							return $options;
 						})
-  					->afterStateUpdated(fn (callable $set) => $set('ilce_id', null))
+					->afterStateUpdated(fn (callable $set) => $set('ilce_id', null))
 						->label(__('form.il'))
 						->reactive()
 						->required(),
@@ -110,12 +111,12 @@ class EmlaklarResource extends Resource
 
 							return [];
 						})
-            
+
 					  ->afterStateUpdated(fn (callable $set) => $set('semt_id', null))
 						->label(__('form.ilce'))
 						->reactive()
 						->required(),
-          Forms\Components\Select::make('semt_id')
+					Forms\Components\Select::make('semt_id')
 						->options(function (callable $get) {
 							if ($get('ilce_id')) {
 								return Semtler::where('ilce_id', $get('ilce_id'))->get()->map(fn ($semt) => [
@@ -126,7 +127,7 @@ class EmlaklarResource extends Resource
 
 							return [];
 						})
-            
+
 					  ->afterStateUpdated(fn (callable $set) => $set('mahalle_id', null))
 						->label(__('form.semt'))
 						->reactive()

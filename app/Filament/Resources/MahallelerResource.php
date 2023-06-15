@@ -75,20 +75,21 @@ class MahallelerResource extends Resource
 					})
 					->label(__('form.ilce'))
 					->afterStateUpdated(fn (callable $set) => $set('semt_id', null))
-          ->reactive()
+		  ->reactive()
 					->required(),
-        Forms\Components\Select::make('semt_id')
-					->options(function (callable $get) {
-						if ($get('ilce_id')) {
-							return Semtler::where('ilce_id', $get('ilce_id'))->get()->map(fn ($ilce) => [
-								'id' => $ilce->id,
-								'semtadi' => __('semtler.'.$ilce->id),
-							])->pluck('semtadi', 'id');
-						}
-						return [];
-					})
-					->label(__('form.semt'))
-					->required(),
+				Forms\Components\Select::make('semt_id')
+							->options(function (callable $get) {
+								if ($get('ilce_id')) {
+									return Semtler::where('ilce_id', $get('ilce_id'))->get()->map(fn ($ilce) => [
+										'id' => $ilce->id,
+										'semtadi' => __('semtler.'.$ilce->id),
+									])->pluck('semtadi', 'id');
+								}
+
+								return [];
+							})
+							->label(__('form.semt'))
+							->required(),
 
 			], $schema))->columns(1);
 	}

@@ -11,7 +11,7 @@ class Mahalleler extends Model
 
 	protected $table = 'mahalleler';
 
-	protected $fillable = ['il_id', 'ilce_id', 'mahalleadi','semt_id'];
+	protected $fillable = ['il_id', 'ilce_id', 'mahalleadi', 'semt_id'];
 
 	public function il()
 	{
