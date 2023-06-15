@@ -7,12 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Emlakdetay extends Model
 {
-    use HasFactory;
-    protected $table = 'emlakdetay';
-    protected $fillable = ['emlak_id', 'dilkodu', 'sef','baslik','aciklama','detay','dilkodu'];
+	use HasFactory;
 
-    public function emlak()
-    {
-        return $this->belongsTo(Emlak::class);
-    }
+	protected $table = 'emlakdetay';
+
+	protected $fillable = ['emlak_id', 'dilkodu', 'sef', 'baslik', 'aciklama', 'detay', 'dilkodu'];
+
+	public function emlak()
+	{
+		return $this->belongsTo(Emlak::class);
+	}
 }

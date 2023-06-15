@@ -7,19 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Emlaknitelikleri extends Model
 {
-    use HasFactory;
+	use HasFactory;
 
-    protected $table = 'emlaknitelikleri';
-    protected $fillable = ['emlak_id', 'nitelik_id', 'deger'];
+	protected $table = 'emlaknitelikleri';
 
-    public function nitelik()
-    {
-        return $this->belongsTo(Nitelikler::class, 'nitelik_id');
-    }
+	protected $fillable = ['emlak_id', 'nitelik_id', 'deger'];
 
-    public function emlak()
-    {
-        return $this->belongsTo(Emlak::class, 'emlak_id');
-    }
+	public function nitelik()
+	{
+		return $this->belongsTo(Nitelikler::class, 'nitelik_id');
+	}
 
+	public function emlak()
+	{
+		return $this->belongsTo(Emlak::class, 'emlak_id');
+	}
 }

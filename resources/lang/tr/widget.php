@@ -1,5 +1,5 @@
 <?php
 
 return [
-  'emlaksayisi' => 'Kayıtlı emlak sayısı',
+	'emlaksayisi' => 'Kayıtlı emlak sayısı',
 ];

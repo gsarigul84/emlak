@@ -8,14 +8,14 @@ use Filament\Resources\Pages\ManageRecords;
 
 class ManageDillers extends ManageRecords
 {
-    protected static string $resource = DillerResource::class;
+	protected static string $resource = DillerResource::class;
 
-    protected function getActions(): array
-    {
-        return [
-            Actions\CreateAction::make()
-            ->modalHeading(__('form.yeni_ekle'))
-            ->label(__('form.yeni_ekle')),
-        ];
-    }
+	protected function getActions(): array
+	{
+		return [
+			Actions\CreateAction::make()
+				->modalHeading(__('form.yeni_ekle'))
+				->label(__('form.yeni_ekle')),
+		];
+	}
 }

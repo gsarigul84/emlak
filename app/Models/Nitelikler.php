@@ -7,10 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Nitelikler extends Model
 {
-    use HasFactory;
-    protected $table = 'nitelikler';
-    protected $fillable = ['nitelikadi','tip', 'degerler'];
-    protected $casts = [
-        'degerler' => 'array',
-    ];
+	use HasFactory;
+
+	protected $table = 'nitelikler';
+
+	protected $fillable = ['nitelikadi', 'tip', 'degerler'];
+
+	protected $casts = [
+		'degerler' => 'array',
+	];
 }

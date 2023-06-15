@@ -7,12 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sabiticerik extends Model
 {
-    use HasFactory;
-    protected $table = 'sabiticerik';
-    protected $fillable = ['icerikadi'];
+	use HasFactory;
 
-    public function ceviriler()
-    {
-        return $this->hasMany(SabiticerikDetay::class, 'icerik_id', 'id');
-    }
+	protected $table = 'sabiticerik';
+
+	protected $fillable = ['icerikadi'];
+
+	public function ceviriler()
+	{
+		return $this->hasMany(SabiticerikDetay::class, 'icerik_id', 'id');
+	}
 }

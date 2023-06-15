@@ -7,19 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Emlakgorselleri extends Model
 {
-    use HasFactory;
-    protected $table = 'emlakgorselleri';
-    protected $fillable = [
-        'emlak_id',
-        'dosyadi',
-        'aciklama',
-        'sira',
-        'vitrin',
-    ];
+	use HasFactory;
 
-    public function emlak()
-    {
-        return $this->belongsTo(Emlak::class, 'emlak_id', 'id');
-    }
-    
+	protected $table = 'emlakgorselleri';
+
+	protected $fillable = [
+		'emlak_id',
+		'dosyadi',
+		'aciklama',
+		'sira',
+		'vitrin',
+	];
+
+	public function emlak()
+	{
+		return $this->belongsTo(Emlak::class, 'emlak_id', 'id');
+	}
 }

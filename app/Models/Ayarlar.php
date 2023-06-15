@@ -7,15 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ayarlar extends Model
 {
-    use HasFactory;
-    protected $table = 'ayarlar';
-    protected $fillable = [
-        'anahtar',
-        'deger',
-        'ekdeger',
-    ];
+	use HasFactory;
 
-    protected $casts = [
-      'ekdeger' => 'array',
-    ];
+	protected $table = 'ayarlar';
+
+	protected $fillable = [
+		'anahtar',
+		'deger',
+		'ekdeger',
+	];
+
+	protected $casts = [
+		'ekdeger' => 'array',
+	];
 }

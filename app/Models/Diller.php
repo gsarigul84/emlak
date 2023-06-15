@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Diller extends Model
 {
-    use HasFactory;
-    protected $table = 'diller';
-    protected $fillable = ['diladi','dilkodu'];
+	use HasFactory;
+
+	protected $table = 'diller';
+
+	protected $fillable = ['diladi', 'dilkodu'];
 }

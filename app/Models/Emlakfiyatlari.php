@@ -8,25 +8,26 @@ use Illuminate\Database\Eloquent\Model;
 
 class Emlakfiyatlari extends Model
 {
-    use HasFactory;
+	use HasFactory;
 
-    protected $table = 'emlakfiyatlari';
-    protected $fillable = [
-        'emlak_id',
-        'fiyat',
-        'sembol',
-    ];
+	protected $table = 'emlakfiyatlari';
 
-    public function emlak()
-    {
-        return $this->belongsTo(Emlaklar::class, 'emlak_id', 'id');
-    }
+	protected $fillable = [
+		'emlak_id',
+		'fiyat',
+		'sembol',
+	];
 
-    // public function Fiyat(): Attribute
-    // {
-    //   return Attribute::make(
-    //     get: fn ($value) => $value / 100 ,
-    //     set: fn ($value) => $value * 100 ,
-    //   );
-    // }
+	public function emlak()
+	{
+		return $this->belongsTo(Emlaklar::class, 'emlak_id', 'id');
+	}
+
+	// public function Fiyat(): Attribute
+	// {
+	//   return Attribute::make(
+	//     get: fn ($value) => $value / 100 ,
+	//     set: fn ($value) => $value * 100 ,
+	//   );
+	// }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ac907b8b000b524bd3be5811c4dcc40d",
+    "content-hash": "a6c6a5d2aa8f5660119e9e3c237f45ad",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -8047,17 +8047,17 @@
             "time": "2020-07-09T08:09:16+00:00"
         },
         {
-            "name": "laravel/pint",
-            "version": "v1.10.1",
+            "name": "jetstreamlabs/pinte",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/laravel/pint.git",
-                "reference": "d69f914aa347a448628b672ba90adf0b4ea0ce4a"
+                "url": "https://github.com/jetstreamlabs/pinte.git",
+                "reference": "c9adecf4069369eb6be5fba14732aa2d98e60946"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/pint/zipball/d69f914aa347a448628b672ba90adf0b4ea0ce4a",
-                "reference": "d69f914aa347a448628b672ba90adf0b4ea0ce4a",
+                "url": "https://api.github.com/repos/jetstreamlabs/pinte/zipball/c9adecf4069369eb6be5fba14732aa2d98e60946",
+                "reference": "c9adecf4069369eb6be5fba14732aa2d98e60946",
                 "shasum": ""
             },
             "require": {
@@ -8065,19 +8065,19 @@
                 "ext-mbstring": "*",
                 "ext-tokenizer": "*",
                 "ext-xml": "*",
-                "php": "^8.1.0"
+                "php": "^8.1"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.17.0",
-                "illuminate/view": "^10.5.1",
-                "laravel-zero/framework": "^10.0.2",
-                "mockery/mockery": "^1.5.1",
-                "nunomaduro/larastan": "^2.5.1",
-                "nunomaduro/termwind": "^1.15.1",
-                "pestphp/pest": "^2.4.0"
+                "friendsofphp/php-cs-fixer": "^3.14",
+                "illuminate/view": "^9.50",
+                "laravel-zero/framework": "^9.2",
+                "mockery/mockery": "^1.5",
+                "nunomaduro/larastan": "^2.4",
+                "nunomaduro/termwind": "^1.15",
+                "pestphp/pest": "^1.22"
             },
             "bin": [
-                "builds/pint"
+                "builds/pinte"
             ],
             "type": "project",
             "autoload": {
@@ -8095,10 +8095,14 @@
                 {
                     "name": "Nuno Maduro",
                     "email": "enunomaduro@gmail.com"
+                },
+                {
+                    "name": "secondman",
+                    "email": "secondman@jetstreamlabs.com"
                 }
             ],
-            "description": "An opinionated code formatter for PHP.",
-            "homepage": "https://laravel.com",
+            "description": "A less opinionated code formatter for PHP, based on Laravel Pint.",
+            "homepage": "https://github.com/jetstreamlabs/pinte",
             "keywords": [
                 "format",
                 "formatter",
@@ -8107,10 +8111,10 @@
                 "php"
             ],
             "support": {
-                "issues": "https://github.com/laravel/pint/issues",
-                "source": "https://github.com/laravel/pint"
+                "issues": "https://github.com/jetstreamlabs/pinte/issues",
+                "source": "https://github.com/jetstreamlabs/pinte"
             },
-            "time": "2023-06-03T15:01:17+00:00"
+            "time": "2023-02-05T09:23:57+00:00"
         },
         {
             "name": "laravel/sail",
@@ -10338,5 +10342,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

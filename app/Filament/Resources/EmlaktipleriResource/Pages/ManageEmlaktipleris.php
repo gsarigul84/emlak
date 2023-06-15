@@ -10,27 +10,29 @@ use Spatie\TranslationLoader\LanguageLine;
 
 class ManageEmlaktipleris extends ManageRecords
 {
-    protected static string $resource = EmlaktipleriResource::class;
+	protected static string $resource = EmlaktipleriResource::class;
 
-    protected function getActions(): array
-    {
-        return [
-            Actions\CreateAction::make()
-            ->modalHeading(__('form.yeni_ekle'))
-            ->label(__('form.yeni_ekle'))
-            ->mutateFormDataUsing(function (array $data): array {
-              $data['emlaktipi'] = reset($data['emlaktipleri']);
-              return $data;
-            })
-            ->using(function (array $data): Model {
-              $yeniil = static::getModel()::create($data);
-                LanguageLine::create([
-                  'group' => 'emlaktipleri',
-                  'key' => $yeniil->id,
-                  'text' => $data['emlaktipleri']
-                ]);
-              return $yeniil;
-            }),
-        ];
-    }
+	protected function getActions(): array
+	{
+		return [
+			Actions\CreateAction::make()
+				->modalHeading(__('form.yeni_ekle'))
+				->label(__('form.yeni_ekle'))
+				->mutateFormDataUsing(function (array $data): array {
+					$data['emlaktipi'] = reset($data['emlaktipleri']);
+
+					return $data;
+				})
+				->using(function (array $data): Model {
+					$yeniil = static::getModel()::create($data);
+					LanguageLine::create([
+						'group' => 'emlaktipleri',
+						'key' => $yeniil->id,
+						'text' => $data['emlaktipleri'],
+					]);
+
+					return $yeniil;
+				}),
+		];
+	}
 }

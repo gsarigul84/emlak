@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Fiyatlandirma extends Model
 {
-    use HasFactory;
-    protected $table = 'fiyatlandirma';
-    protected $fillable = ['sembol','durum'];
+	use HasFactory;
+
+	protected $table = 'fiyatlandirma';
+
+	protected $fillable = ['sembol', 'durum'];
 }

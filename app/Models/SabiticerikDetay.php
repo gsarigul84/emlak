@@ -7,12 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class SabiticerikDetay extends Model
 {
-    use HasFactory;
-    protected $table = 'sabiticerik_detay';
-    protected $fillable = ['icerik_id', 'dilkodu', 'sef', 'aciklama', 'baslik', 'icerik'];
+	use HasFactory;
 
-    public function icerik()
-    {
-        return $this->belongsTo(Sabiticerik::class, 'icerik_id', 'id');
-    }
+	protected $table = 'sabiticerik_detay';
+
+	protected $fillable = ['icerik_id', 'dilkodu', 'sef', 'aciklama', 'baslik', 'icerik'];
+
+	public function icerik()
+	{
+		return $this->belongsTo(Sabiticerik::class, 'icerik_id', 'id');
+	}
 }

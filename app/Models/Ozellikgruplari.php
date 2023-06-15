@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ozellikgruplari extends Model
 {
-    use HasFactory;
-    protected $table = 'ozellikgruplari';
-    protected $fillable = ['grupadi'];
+	use HasFactory;
+
+	protected $table = 'ozellikgruplari';
+
+	protected $fillable = ['grupadi'];
 }

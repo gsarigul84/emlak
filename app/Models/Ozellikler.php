@@ -7,11 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ozellikler extends Model
 {
-    use HasFactory;
-    protected $table = 'ozellikler';
-    protected $fillable = ['ozellikadi','grup_id'];
+	use HasFactory;
 
-    public function grup(){
-      return $this->belongsTo(Ozellikgruplari::class,'grup_id','id');
-    }
+	protected $table = 'ozellikler';
+
+	protected $fillable = ['ozellikadi', 'grup_id'];
+
+	public function grup()
+	{
+		return $this->belongsTo(Ozellikgruplari::class, 'grup_id', 'id');
+	}
 }

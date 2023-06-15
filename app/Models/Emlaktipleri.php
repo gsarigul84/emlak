@@ -7,12 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Emlaktipleri extends Model
 {
-    use HasFactory;
-    protected $table = 'emlaktipleri';
-    protected $fillable = ['emlaktipi', 'grup_id'];
+	use HasFactory;
 
-    public function grup()
-    {
-        return $this->belongsTo(Emlakgruplari::class, 'grup_id', 'id');
-    }
+	protected $table = 'emlaktipleri';
+
+	protected $fillable = ['emlaktipi', 'grup_id'];
+
+	public function grup()
+	{
+		return $this->belongsTo(Emlakgruplari::class, 'grup_id', 'id');
+	}
 }

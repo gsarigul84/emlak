@@ -8,10 +8,10 @@ use Filament\Widgets\StatsOverviewWidget\Card;
 
 class Emlaksayisi extends BaseWidget
 {
-    protected function getCards(): array
-    {
-        return [
-          Card::make(__('widget.emlaksayisi'), Emlaklar::count()),
-        ];
-    }
+	protected function getCards(): array
+	{
+		return [
+			Card::make(__('widget.emlaksayisi'), Emlaklar::count()),
+		];
+	}
 }
