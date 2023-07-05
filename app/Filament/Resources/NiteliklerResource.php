@@ -122,7 +122,7 @@ class NiteliklerResource extends Resource
 						$data['nitelikadi'] = reset($data['nitelikadlari']);
 						$data['degerler'] = array_map(function ($deger) {
 							return $deger['anahtar'];
-						}, $data['degerler_raw']);
+						}, $data['degerler_raw'] ?? []);
 						$record->update($data);
 						LanguageLine::where('group', 'nitelik')
 							->where('key', $record->id)

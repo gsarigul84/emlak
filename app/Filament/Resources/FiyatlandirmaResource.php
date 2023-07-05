@@ -32,6 +32,10 @@ class FiyatlandirmaResource extends Resource
 	{
 		$schema = [];
 		$diller = \App\Models\Diller::all();
+    $schema[] = Forms\Components\TextInput::make('sembol')
+				->label(__('form.sembol'))
+				->required()
+				->maxLength(255);
 		foreach ($diller as $dil) {
 			$schema[] = Forms\Components\TextInput::make('semboladlari.'.$dil->dilkodu)
 				->label(__('form.sembol').' - '.$dil->diladi)
@@ -73,7 +77,6 @@ class FiyatlandirmaResource extends Resource
 						return $data;
 					})
 					->using(function (Model $record, array $data): Model {
-						$data['sembol'] = reset($data['semboladlari']);
 						$record->update($data);
 						LanguageLine::where('group', 'fiyatlandirma')
 							->where('key', $record->id)

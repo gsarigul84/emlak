@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SeceneklerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-	return view('welcome');
+Route::get('/', function(){
+  return redirect()->to('/'.app()->getLocale());
 });
+include_once('site.php');
 
-Route::fallback(function () {
-	return redirect()->route('filament.auth.login');
-})->name('login');
+Route::get('set-doviz-cinsi', [SeceneklerController::class, 'dovizCinsi'])->name('set-doviz-cinsi');
+// TODO: 404 eklenebilir
+// Route::fallback(function () {
+// 	return redirect()->route('filament.auth.login');
+// })
+// ->name('login');

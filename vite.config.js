@@ -8,4 +8,10 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    server: {
+      hmr: {
+        protocol: 'ws',
+        host: 'antalyadb.test',
+      }
+    }
 });

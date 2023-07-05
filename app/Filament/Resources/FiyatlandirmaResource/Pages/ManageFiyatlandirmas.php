@@ -18,11 +18,6 @@ class ManageFiyatlandirmas extends ManageRecords
 			Actions\CreateAction::make()
 				->modalHeading(__('form.yeni_ekle'))
 				->label(__('form.yeni_ekle'))
-				->mutateFormDataUsing(function (array $data): array {
-					$data['sembol'] = reset($data['semboladlari']);
-
-					return $data;
-				})
 				->using(function (array $data): Model {
 					$sembol = static::getModel()::create($data);
 					LanguageLine::create([

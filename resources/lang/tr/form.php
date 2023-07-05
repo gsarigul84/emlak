@@ -72,4 +72,5 @@ return [
 	'aktif' => 'Aktif',
 	'semtadi' => 'Semt adı',
 	'semt' => 'Semt',
+	'tumu' => 'Tümü',
 ];

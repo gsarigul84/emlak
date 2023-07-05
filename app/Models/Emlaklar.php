@@ -72,4 +72,15 @@ class Emlaklar extends Model implements HasMedia
 	{
 		return $this->belongsTo(Mahalleler::class, 'mahalle_id');
 	}
+
+  public function semt()
+  {
+    return $this->belongsTo(Semtler::class, 'semt_id');
+  }
+
+  public function fiyat()
+  {
+    return $this->hasOne(Emlakfiyatlari::class, 'emlak_id');
+  }
+  
 }
