@@ -29,20 +29,31 @@ class DummyDataCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'app:dummy-data';
+    protected $signature = 'app:ornek-emlak';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Test için dummy data oluşturur.';
+    protected $description = 'Örnek emlaklar oluşturur.';
 
     /**
      * Execute the console command.
      */
     public function handle()
     {
+      $diller = Diller::all();
+      $emlakgruplari = Emlakgruplari::all();
+      $emlaktipleri = Emlaktipleri::all()->groupBy('grup_id');
+      $nitelikler = Nitelikler::all();
+      $ozellikler = Ozellikler::all();
+      $limit = 40;
+      foreach($emlakgruplari as $eg){
+        for($l = 0; $l < $limit; $l ++){
+          
+        }
+      }
 
     }
 }

@@ -21,7 +21,7 @@ class SemtlerResource extends Resource
 
 	protected static ?string $navigationIcon = 'heroicon-o-map';
 
-	protected static ?int $navigationSort = 96;
+	protected static ?int $navigationSort = 94;
 
 	protected static function getNavigationGroup(): string
 	{

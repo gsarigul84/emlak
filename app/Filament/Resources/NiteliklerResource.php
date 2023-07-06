@@ -18,7 +18,7 @@ class NiteliklerResource extends Resource
 
 	protected static ?string $navigationIcon = 'heroicon-o-collection';
 
-	protected static ?int $navigationSort = 91;
+	protected static ?int $navigationSort = 90;
 
 	protected static function getNavigationGroup(): string
 	{

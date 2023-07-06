@@ -11,7 +11,7 @@ class Emlakdetay extends Model
 
 	protected $table = 'emlakdetay';
 
-	protected $fillable = ['emlak_id', 'dilkodu', 'sef', 'baslik', 'aciklama', 'detay', 'dilkodu'];
+	protected $fillable = ['emlak_id', 'dilkodu', 'sef', 'baslik', 'aciklama', 'detay'];
 
 	public function emlak()
 	{

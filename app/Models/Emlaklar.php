@@ -82,5 +82,5 @@ class Emlaklar extends Model implements HasMedia
   {
     return $this->hasOne(Emlakfiyatlari::class, 'emlak_id');
   }
-  
+   
 }

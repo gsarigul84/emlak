@@ -22,7 +22,7 @@ class MahallelerResource extends Resource
 
 	protected static ?string $navigationIcon = 'heroicon-o-location-marker';
 
-	protected static ?int $navigationSort = 94;
+	protected static ?int $navigationSort = 93;
 
 	protected static function getNavigationGroup(): string
 	{

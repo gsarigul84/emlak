@@ -19,7 +19,7 @@ class OzelliklerResource extends Resource
 
 	protected static ?string $navigationIcon = 'heroicon-o-check-circle';
 
-	protected static ?int $navigationSort = 92;
+	protected static ?int $navigationSort = 91;
 
 	protected static function getNavigationGroup(): string
 	{

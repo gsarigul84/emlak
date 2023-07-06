@@ -17,7 +17,7 @@ class FiyatlandirmaResource extends Resource
 	protected static ?string $model = Fiyatlandirma::class;
 
 	protected static ?string $navigationIcon = 'heroicon-o-cash';
-
+  protected static ?int $navigationSort = 99;
 	protected static function getNavigationGroup(): string
 	{
 		return __('menu.ayarlar');

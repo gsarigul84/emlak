@@ -19,7 +19,7 @@ class OzellikgruplariResource extends Resource
 
 	protected static ?string $navigationIcon = 'heroicon-o-folder';
 
-	protected static ?int $navigationSort = 93;
+	protected static ?int $navigationSort = 92;
 
 	protected static function getNavigationGroup(): string
 	{
