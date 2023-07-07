@@ -7,5 +7,7 @@ use Illuminate\Http\Request;
 class EmlakdetayController extends Controller
 {
     //
-    public function index(){}
+    public function detay($slug, $id){
+      return view('emlakdetay');
+    }
 }

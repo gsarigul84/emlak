@@ -153,9 +153,9 @@ class Ayarlar extends Page
       $yollar[] = "Route::get('/', [AnasayfaController::class, 'index'])->name('home');";
       $yollar[] = "Route::get('/".$state['icerik_prefix'][$dil->dilkodu]."/{slug}', [IcerikController::class, 'index'])->name('icerik');";
       $yollar[] = "Route::get('/".$state['emlaklistesi_prefix'][$dil->dilkodu]."', [EmlaklistesiController::class, 'index'])->name('emlaklistesi');";
-      $yollar[] = "Route::get('/".$state['emlakdetay_prefix'][$dil->dilkodu]."/{slug}', [EmlakdetayController::class, 'detay'])->name('emlakdetay');";
+      $yollar[] = "Route::get('/".$state['emlakdetay_prefix'][$dil->dilkodu]."/{slug}/{id}', [EmlakdetayController::class, 'detay'])->name('emlakdetay');";
       $yollar[] = "Route::get('/".$state['blog_prefix'][$dil->dilkodu]."/{slug}', [BlogController::class, 'index'])->name('blog');";
-      $yollar[] = "Route::get('/".$state['post_prefix'][$dil->dilkodu]."/{slug}', [PostController::class, 'detay'])->name('post');";
+      $yollar[] = "Route::get('/".$state['post_prefix'][$dil->dilkodu]."/{slug}/{id}', [PostController::class, 'detay'])->name('post');";
       $yollar[] = "});";
     }
     $yollar = implode("\r\n", $yollar);

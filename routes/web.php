@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function(){
+  if(session('language')){
+    return redirect()->to('/'.session('language'));
+  }
   return redirect()->to('/'.app()->getLocale());
 });
 include_once('site.php');

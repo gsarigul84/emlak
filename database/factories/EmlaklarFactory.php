@@ -4,9 +4,11 @@ namespace Database\Factories;
 
 use App\Models\Diller;
 use App\Models\Emlakdetay;
+use App\Models\Emlakfiyatlari;
 use App\Models\Emlakgruplari;
 use App\Models\Emlaklar;
 use App\Models\Emlaktipleri;
+use App\Models\Fiyatlandirma;
 use App\Models\Ilceler;
 use App\Models\Iller;
 use App\Models\Mahalleler;
@@ -62,8 +64,8 @@ class EmlaklarFactory extends Factory
           $response = Http::get('https://picsum.photos/1920/1080');
           $imageContents = $response->getBody();
           $rand = uniqid();
-          $filePath = "public/{$rand}.jpg"; // Adjust the storage path and file name as needed
-          Storage::put($filePath, $imageContents);
+          $filePath = "{$rand}.jpg"; // Adjust the storage path and file name as needed
+          Storage::put("public/".$filePath, $imageContents);
           $filePaths[] = $filePath;
         }
 
@@ -76,10 +78,25 @@ class EmlaklarFactory extends Factory
   public function configure()
   {
     $diller = Diller::select('dilkodu')->get()->toArray();
-    return $this->afterCreating(function (Emlaklar $emlaklar) use ($diller) {
-      $emlakdetay = Emlakdetay::factory()->sequence(...$diller)
-        ->create(['emlak_id' => $emlaklar->id]);
-      $emlaklar->detay()->save($emlakdetay);
+    $fiyatlandirma = Fiyatlandirma::all();
+    return $this->afterCreating(function (Emlaklar $emlaklar) use ($diller, $fiyatlandirma) {
+      $emlakdetay = [];
+      $fiyatlar = [];
+      foreach ($diller as $dil) {
+        $emlakdetay[] = Emlakdetay::factory()->create([
+          'emlak_id' => $emlaklar->id,
+          'dilkodu' => $dil['dilkodu'],
+        ]);
+      }
+      foreach($fiyatlandirma as $fiyat){
+        $fiyatlar[] = Emlakfiyatlari::create([
+          'sembol' => $fiyat->sembol,
+          'fiyat' => $this->faker->numberBetween(100000, 1000000),
+          'emlak_id' => $emlaklar->id,
+        ]);
+      }
+      $emlaklar->detay()->saveMany($emlakdetay);
+      $emlaklar->fiyat()->saveMany($fiyatlar);
     });
   }
 }

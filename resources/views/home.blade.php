@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('content')
-<div class="overflow-hidden">
+<div class="overflow-hidden ">
   <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-20">
     <div class="relative mx-auto max-w-4xl grid space-y-5 sm:space-y-10">
       <div class="text-center">
@@ -11,18 +11,14 @@
       <form method="get" action="{{ route(session('language').'.emlaklistesi') }}">
         <div class="mx-auto max-w-4xl sm:flex sm:space-x-3 p-3 bg-white  rounded-lg shadow-lg shadow-gray-100 dark:bg-slate-900 dark:shadow-gray-900/[.2]">
           <div class="pb-2 sm:pb-0 sm:flex-[1_0_0%]">
-            <select
-              name="post_type"
-              class="py-3 px-2 pr-9 block w-full border border-gray-100 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+            <select name="post_type" class="py-3 px-2 pr-9 block w-full border border-gray-100 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
               <option selected>{{ __('form.tumu') }}</option>
               <option value="for_sale">{{ __('form.satilik') }}</option>
               <option value="for_rent">{{ __('form.kiralik') }}</option>
             </select>
           </div>
           <div class="pt-2 sm:pt-0 sm:pl-3 sm:flex-[1_0_0%]">
-            <select 
-              name="type"
-              class="py-3 px-2 pr-9 block w-full border border-gray-100 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+            <select name="type" class="py-3 px-2 pr-9 block w-full border border-gray-100 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
               <option selected>{{ __('form.emlaktipi') }}</option>
               @foreach($emlakgruplari as $et)
               <option value="{{ $et->id }}">{{ __('emlakgrubu.'.$et->id) }}</option>
@@ -30,9 +26,7 @@
             </select>
           </div>
           <div class="pt-2 sm:pt-0 sm:pl-3 sm:flex-[1_0_0%]">
-            <select
-              name="city"
-              class="py-3 px-2 pr-9 block w-full border border-gray-100 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+            <select name="city" class="py-3 px-2 pr-9 block w-full border border-gray-100 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
               <option selected>{{ __('form.il') }}</option>
               @foreach($iller as $il)
               <option value="{{ $il->id }}">{{ __('iller.'.$il->id) }}</option>
@@ -49,6 +43,12 @@
     </div>
   </div>
 </div>
-
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <div class="grid sm:grid-cols-1 lg:grid-cols-2 gap-6">
+    @foreach($sonilanlar as $ilan)
+    <x-anasayfa.emlak-card :emlak="$ilan" />
+    @endforeach
+  </div>
+</div>
 
 @endsection

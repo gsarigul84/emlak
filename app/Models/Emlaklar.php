@@ -80,7 +80,7 @@ class Emlaklar extends Model implements HasMedia
 
   public function fiyat()
   {
-    return $this->hasOne(Emlakfiyatlari::class, 'emlak_id');
+    return $this->hasMany(Emlakfiyatlari::class, 'emlak_id');
   }
    
 }

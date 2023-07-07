@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Emlakdetay;
 use App\Models\Emlakgruplari;
 use App\Models\Emlaklar;
 use App\Models\Emlaktipleri;
@@ -23,6 +24,10 @@ class AnasayfaController extends Controller
         ])
         ->take(10)
         ->get();
+      $sonilanlar->each(function ($item) {
+        $item->setRelation('detay', Emlakdetay::where('dilkodu', app()->getLocale())->where('emlak_id', $item->id)->first());
+        $item->setRelation('fiyat', $item->fiyat->keyBy('sembol'));
+      });
       return view('home',[
         'emlakgruplari' => $emlakgruplari,
         'iller' => $iller,
