@@ -8,11 +8,14 @@ use App\Models\Emlaklar;
 use App\Models\Emlaktipleri;
 use App\Models\Iller;
 use Illuminate\Http\Request;
+use Artesaos\SEOTools\Facades\SEOMeta;
 
 class AnasayfaController extends Controller
 {
     //
     public function index(){
+      SEOMeta::setTitle(__('sitetitle'));
+      SEOMeta::setDescription(__('sitedescription'));
       $emlakgruplari = Emlakgruplari::all();
       $iller = Iller::all();
       $sonilanlar = Emlaklar::orderBy('id','desc')

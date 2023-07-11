@@ -37,7 +37,7 @@ class EmlaklarFactory extends Factory
       'tip_id' => function () use ($eg) {
         return Emlaktipleri::where('grup_id', $eg->id)->inRandomOrder()->first();
       },
-      'ilantipi' => $this->faker->randomElement(['Satılık', 'Kiralık']),
+      'ilantipi' => $this->faker->randomElement(['satilik', 'kiralik']),
       'ilan_no' => $this->faker->unique()->randomNumber(),
       'il_id' => $il->id,
       'ilce_id' => function () use ($il) {
