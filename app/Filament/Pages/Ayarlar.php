@@ -118,6 +118,13 @@ class Ayarlar extends Page
               Forms\Components\TextInput::make('linkedin_url')
                 ->label(__('form.linkedin_url')),
             ]),
+          Section::make(__('form.api_bilgileri'))
+            ->schema([
+              Forms\Components\TextInput::make('google_maps_key')
+                ->label(__('form.google_maps_key')),
+              Forms\Components\TextInput::make('google_analytics_key')
+                ->label(__('form.google_analytics_key')),
+            ]),
         ])->columnSpan(1),
         Card::make()->label('Meta')->schema([
           Tabs::make('tabs')->tabs($tabs),

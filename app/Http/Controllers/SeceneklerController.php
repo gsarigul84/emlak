@@ -18,4 +18,14 @@ class SeceneklerController extends Controller
       'dovizcinsi' => session('dovizcinsi')
     ]);
   }
+
+  public function cookieConsent(){
+    session(['cookie-consent' => true]);
+    
+    return response()->json([
+      'status' => 1,
+      'message' => 'Çerez politikası kabul edildi.',
+      'cookieconsent' => session('cookieconsent')
+    ]);
+  }
 }

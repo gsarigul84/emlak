@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ayarlar;
 use App\Models\Emlakdetay;
 use App\Models\Emlaklar;
 use App\Models\Emlaknitelikleri;
@@ -41,10 +42,14 @@ class EmlakdetayController extends Controller
       $emlak->setRelation('ozellik', Emlakozellikleri::where('emlak_id', $emlak->id)->get()->keyBy('ozellik_id') );
       SEOMeta::setTitle($emlak->detay->baslik);
       SEOMeta::setTitle($emlak->detay->aciklama);
+
+      $maps_key = Ayarlar::where('anahtar','google_maps_key')->first()?->deger;
+
       return view('emlakdetay',[
         'emlak' => $emlak,
         'nitelikler' => $nitelikler,
         'ozellikler' => $ozellikler,
+        'maps_key' => $maps_key,
       ]);
     }
 }

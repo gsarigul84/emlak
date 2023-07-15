@@ -73,4 +73,7 @@ return [
 	'semtadi' => 'Semt adı',
 	'semt' => 'Semt',
 	'tumu' => 'Tümü',
+	'google_maps_key' => 'Google Maps anahtarı',
+	'google_analytics_key' => 'Google Analytics anahtarı',
+	'api_bilgileri' => 'API bilgileri',
 ];

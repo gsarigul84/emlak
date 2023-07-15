@@ -23,6 +23,7 @@ Route::get('/', function(){
 include_once('site.php');
 
 Route::get('set-doviz-cinsi', [SeceneklerController::class, 'dovizCinsi'])->name('set-doviz-cinsi');
+Route::get('cookie-consent', [SeceneklerController::class, 'cookieConsent'])->name('cookie-consent');
 // TODO: 404 eklenebilir
 // Route::fallback(function () {
 // 	return redirect()->route('filament.auth.login');

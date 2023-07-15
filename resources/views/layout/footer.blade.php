@@ -1,3 +1,24 @@
+@if(!session()->has('cookie-consent') || !session('cookie-consent'))
+<div 
+  x-data="{
+    accept(){
+      fetch('{{ route('cookie-consent') }}');
+    }
+  }"
+  id="cookies-simple-with-dismiss-button" 
+  class="fixed bottom-0 left-1/2 transform -translate-x-1/2 z-[60] sm:max-w-4xl w-full mx-auto p-6">
+  <div class="p-4 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
+    <div class="flex justify-between items-center gap-x-5 sm:gap-x-10">
+      <h2 class="text-sm text-gray-600 dark:text-gray-400">
+        By continuing to use this site you consent to the use of cookies in accordance with our <a class="inline-flex items-center gap-x-1.5 text-blue-600 decoration-2 hover:underline font-medium" href="#">Cookies Policy.</a>
+      </h2>
+      <button x-on:click="accept" type="button" class="inline-flex bg-gray-200 rounded-full p-3 text-gray-500 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-400" data-hs-remove-element="#cookies-simple-with-dismiss-button">
+        <span>Dismiss</span>
+      </button>
+    </div>
+  </div>
+</div>
+@endif
 <footer class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
   <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 mb-10">
     <div class="col-span-full hidden lg:col-span-1 lg:block">
@@ -58,14 +79,11 @@
   <div class="pt-5 mt-5 border-t border-gray-200 dark:border-gray-700">
     <div class="sm:flex sm:justify-between sm:items-center">
       <div class="flex items-center gap-x-3">
-        <!-- Language Dropdown -->
       <div class="flex justify-between items-center">
         <div class="mt-3 sm:hidden">
           <a class="flex-none text-xl font-semibold dark:text-white" href="#" aria-label="Brand">Brand</a>
           <p class="mt-1 text-xs sm:text-sm text-gray-600 dark:text-gray-400">© 2022 Preline.</p>
         </div>
-
-        <!-- Social Brands -->
         <div class="space-x-4">
           <a class="inline-block text-gray-500 hover:text-gray-800 dark:hover:text-gray-200" href="#">
             <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">

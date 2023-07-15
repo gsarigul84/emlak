@@ -25,6 +25,7 @@ class AnasayfaController extends Controller
           'ilce',
           'fiyat',
         ])
+        ->where('durum', true)
         ->take(10)
         ->get();
       $sonilanlar->each(function ($item) {
