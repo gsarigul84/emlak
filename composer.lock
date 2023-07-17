@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a368b3f182a4f70ed1c65027d89f140",
+    "content-hash": "cd3fbeb0b91622059fcdaa01f3fd406b",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -1349,6 +1349,62 @@
             "time": "2023-02-25T20:23:15+00:00"
         },
         {
+            "name": "gsarigul84/translation-manager",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gsarigul84/translation-manager.git",
+                "reference": "b1d61cd2c4e48573f41d606b7809f5afab64ac15"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gsarigul84/translation-manager/zipball/b1d61cd2c4e48573f41d606b7809f5afab64ac15",
+                "reference": "b1d61cd2c4e48573f41d606b7809f5afab64ac15",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^2.17",
+                "filament/notifications": "^2.17",
+                "php": "^8.1",
+                "spatie/laravel-package-tools": "^1.10",
+                "spatie/laravel-translation-loader": "^2.7",
+                "stijnvanouplines/blade-country-flags": "^1.0"
+            },
+            "require-dev": {
+                "tightenco/duster": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Kenepa\\TranslationManager\\TranslationManagerProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kenepa\\TranslationManager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Manage your application's translation strings in Filament.",
+            "homepage": "https://github.com/kenape/translation-manager",
+            "keywords": [
+                "Kenepa",
+                "filament",
+                "laravel",
+                "localization",
+                "translation"
+            ],
+            "support": {
+                "source": "https://github.com/gsarigul84/translation-manager/tree/v0.1.0"
+            },
+            "time": "2023-07-17T06:20:14+00:00"
+        },
+        {
             "name": "guzzlehttp/guzzle",
             "version": "7.7.0",
             "source": {
@@ -1884,63 +1940,6 @@
                 }
             ],
             "time": "2022-05-21T17:30:32+00:00"
-        },
-        {
-            "name": "kenepa/translation-manager",
-            "version": "3.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kenepa/translation-manager.git",
-                "reference": "3605c8e80f7f2bd97846dbc5f12d520a656904ac"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kenepa/translation-manager/zipball/3605c8e80f7f2bd97846dbc5f12d520a656904ac",
-                "reference": "3605c8e80f7f2bd97846dbc5f12d520a656904ac",
-                "shasum": ""
-            },
-            "require": {
-                "filament/filament": "^2.17",
-                "filament/notifications": "^2.17",
-                "php": "^8.1",
-                "spatie/laravel-package-tools": "^1.10",
-                "spatie/laravel-translation-loader": "^2.7",
-                "stijnvanouplines/blade-country-flags": "^1.0"
-            },
-            "require-dev": {
-                "tightenco/duster": "^2.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Kenepa\\TranslationManager\\TranslationManagerProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Kenepa\\TranslationManager\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Manage your application's translation strings in Filament.",
-            "homepage": "https://github.com/kenape/translation-manager",
-            "keywords": [
-                "Kenepa",
-                "filament",
-                "laravel",
-                "localization",
-                "translation"
-            ],
-            "support": {
-                "issues": "https://github.com/kenepa/translation-manager/issues",
-                "source": "https://github.com/kenepa/translation-manager/tree/3.0.1"
-            },
-            "time": "2023-06-02T17:21:35+00:00"
         },
         {
             "name": "laravel/framework",
@@ -10628,5 +10627,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }
