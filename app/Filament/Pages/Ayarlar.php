@@ -2,11 +2,7 @@
 
 namespace App\Filament\Pages;
 
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\EmlakdetayController;
-use App\Http\Controllers\EmlaklistesiController;
-use App\Http\Controllers\IcerikController;
-use App\Http\Controllers\PostController;
+
 use App\Models\Ayarlar as ModelAyarlar;
 use App\Models\Diller;
 use Filament\Forms;
@@ -16,6 +12,7 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Tabs;
 use Filament\Pages\Page;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Livewire\TemporaryUploadedFile;
 
 class Ayarlar extends Page
@@ -156,14 +153,16 @@ class Ayarlar extends Page
     $diller = Diller::all();
     $yollar = [];
     foreach($diller as $dil){
-      $yollar[] = "Route::group(['prefix' => '".$dil->dilkodu."', 'as' => '".$dil->dilkodu.".'], function () {";
-      $yollar[] = "Route::get('/', [AnasayfaController::class, 'index'])->name('home');";
-      $yollar[] = "Route::get('/".$state['icerik_prefix'][$dil->dilkodu]."/{slug}', [IcerikController::class, 'index'])->name('icerik');";
-      $yollar[] = "Route::get('/".$state['emlaklistesi_prefix'][$dil->dilkodu]."', [EmlaklistesiController::class, 'index'])->name('emlaklistesi');";
-      $yollar[] = "Route::get('/".$state['emlakdetay_prefix'][$dil->dilkodu]."/{slug}/{id}', [EmlakdetayController::class, 'detay'])->name('emlakdetay');";
-      $yollar[] = "Route::get('/".$state['blog_prefix'][$dil->dilkodu]."/{slug}', [BlogController::class, 'index'])->name('blog');";
-      $yollar[] = "Route::get('/".$state['post_prefix'][$dil->dilkodu]."/{slug}/{id}', [PostController::class, 'detay'])->name('post');";
-      $yollar[] = "});";
+      $yollar[] = " Route::group(['prefix' => '".$dil->dilkodu."', 'as' => '".$dil->dilkodu.".'], function () {";
+      $yollar[] = "  Route::get('/', [AnasayfaController::class, 'index'])->name('home');";
+      $yollar[] = "  Route::get('/".$state['icerik_prefix'][$dil->dilkodu]."/{slug}', [IcerikController::class, 'index'])->name('icerik');";
+      $yollar[] = "  Route::get('/".$state['emlaklistesi_prefix'][$dil->dilkodu]."', [EmlaklistesiController::class, 'index'])->name('emlaklistesi');";
+      $yollar[] = "  Route::get('/".$state['emlakdetay_prefix'][$dil->dilkodu]."/{slug}/{id}', [EmlakdetayController::class, 'detay'])->name('emlakdetay');";
+      $yollar[] = "  Route::get('/".$state['blog_prefix'][$dil->dilkodu]."/{slug}', [BlogController::class, 'index'])->name('blog');";
+      $yollar[] = "  Route::get('/".$state['post_prefix'][$dil->dilkodu]."/{slug}/{id}', [PostController::class, 'detay'])->name('post');";
+      $yollar[] = "  Route::get('/".Str::slug(__('site.hakkimizda', locale: $dil->dilkodu) ?: __('site.hakkimizda'))."', [HakkimizdaController::class, 'index'])->name('hakkimizda');";
+      $yollar[] = "  Route::get('/".Str::slug(__('site.iletisim', locale: $dil->dilkodu) ?: __('site.hakkimizda'))."', [IletisimController::class, 'index'])->name('iletisim');";
+      $yollar[] = " });";
     }
     $yollar = implode("\r\n", $yollar);
     $router = <<<EOT
@@ -175,10 +174,11 @@ use App\Http\Controllers\EmlaklistesiController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\EmlakdetayController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\HakkimizdaController;
+use App\Http\Controllers\IletisimController;
 Route::group(['middleware' => ['dil','site']], function(){
-  $yollar
+$yollar
 });
-;
 EOT;
     file_put_contents(base_path('routes/site.php'), $router);
   }

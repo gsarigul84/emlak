@@ -7,6 +7,7 @@ use App\Models\Diller;
 use App\Models\SabiticerikDetay;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class CreateSabiticerik extends CreateRecord
 {
@@ -14,6 +15,7 @@ class CreateSabiticerik extends CreateRecord
 
 	protected function handleRecordCreation(array $data): Model
 	{
+    $data['anahtar'] = Str::slug($data['icerikadi']);
 		$icerik = static::getModel()::create($data);
 		$diller = Diller::all();
 		foreach ($diller as $dil) {

@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use Rennokki\QueryCache\Traits\QueryCacheable;
+
 class Emlakgruplari extends Model
 {
-	use HasFactory;
+	use HasFactory, QueryCacheable;
 
 	protected $table = 'emlakgruplari';
 
@@ -17,4 +19,7 @@ class Emlakgruplari extends Model
 		'ozellikgruplari' => 'array',
 		'nitelikler' => 'array',
 	];
+
+  public $cacheFor = 3600;
+  protected static $flushCacheOnUpdate = true;
 }

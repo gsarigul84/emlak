@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Ayarlar extends Model
 {
-	use HasFactory;
-
+	use HasFactory, QueryCacheable;
+  
 	protected $table = 'ayarlar';
-
+  
 	protected $fillable = [
 		'anahtar',
 		'deger',
@@ -20,4 +21,7 @@ class Ayarlar extends Model
 	protected $casts = [
 		'ekdeger' => 'array',
 	];
+
+  public $cacheFor = 3600;
+  protected static $flushCacheOnUpdate = true;
 }

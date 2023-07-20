@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use Rennokki\QueryCache\Traits\QueryCacheable;
+
 class Emlakdetay extends Model
 {
-	use HasFactory;
+	use HasFactory, QueryCacheable;
 
 	protected $table = 'emlakdetay';
 
@@ -17,4 +19,7 @@ class Emlakdetay extends Model
 	{
 		return $this->belongsTo(Emlak::class);
 	}
+
+  public $cacheFor = 3600;
+  protected static $flushCacheOnUpdate = true;
 }

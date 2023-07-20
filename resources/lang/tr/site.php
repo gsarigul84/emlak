@@ -18,4 +18,9 @@ return [
   'filtreler' => 'Filtreler',
   'aciklama' => 'Açıklama',
   'sokak_gorunumu' => 'Sokak görünümü',
+  'hakkimizda' => 'Hakkımızda',
+  'iletisim' => 'İletişim',
+  'cerez_politikasi' => 'Çerez politikası',
+  'kapat' => 'Kapat',
+  
 ];

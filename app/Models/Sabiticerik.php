@@ -11,7 +11,7 @@ class Sabiticerik extends Model
 
 	protected $table = 'sabiticerik';
 
-	protected $fillable = ['icerikadi'];
+	protected $fillable = ['icerikadi', 'anahtar'];
 
 	public function ceviriler()
 	{

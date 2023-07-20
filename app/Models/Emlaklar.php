@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
+use Rennokki\QueryCache\Traits\QueryCacheable;
+
 class Emlaklar extends Model implements HasMedia
 {
-	use InteractsWithMedia;
-	use HasFactory;
+	use HasFactory, QueryCacheable, InteractsWithMedia;
 
 	protected $table = 'emlak';
 
@@ -83,4 +84,7 @@ class Emlaklar extends Model implements HasMedia
     return $this->hasMany(Emlakfiyatlari::class, 'emlak_id');
   }
    
+
+  public $cacheFor = 3600;
+  protected static $flushCacheOnUpdate = true;
 }

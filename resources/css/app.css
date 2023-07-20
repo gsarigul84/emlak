@@ -5,3 +5,14 @@
 .select-control {
   @apply py-3 px-2 pr-9 block w-full border border-gray-100 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400
 }
+
+.menu-link{
+  @apply sm:py-6 font-medium
+}
+.menu-link:not(.active){
+  @apply text-gray-800 hover:text-gray-500 sm:py-6 dark:text-gray-200 dark:hover:text-gray-400
+}
+
+.menu-link.active{
+  @apply text-blue-600
+}

@@ -13,11 +13,10 @@ Kurulum için izlenecek adımlar
 - `php artisan key:generate`
 
 `.env` içerisinde bulunan veritabanı ayarları, site başlığı, site adresi gibi değerleri gerektiği gibi değiştirdikten sonra aşağıdaki işlemleri yapmanız gerekiyor
-- `php artisan migrate`
+- `php artisan migrate --seed`
 - `php artisan tinker`
 
 Açılan konsolda :
 - `User::create(['name' => '<ad>', 'email' => <eposta>, 'password' => Hash::make('<sifre>'), 'is_admin' => true, 'active' => true]);`
 
 Filament ayarları için https://filamentphp.com/
-

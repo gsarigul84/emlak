@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use Rennokki\QueryCache\Traits\QueryCacheable;
 class Ilceler extends Model
 {
-	use HasFactory;
+	use HasFactory, QueryCacheable;
 
 	protected $table = 'ilceler';
 
@@ -27,4 +28,8 @@ class Ilceler extends Model
 	{
 		return $this->hasMany(Mahalleler::class, 'ilce_id');
 	}
+
+  
+  public $cacheFor = 3600;
+  protected static $flushCacheOnUpdate = true;
 }

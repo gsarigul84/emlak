@@ -59,7 +59,7 @@ class EmlaklistesiController extends Controller
           default => 'created_at',
         },
       )
-      ->paginate(2);
+      ->paginate(10);
 
       $emlaklar->each(function ($item) {
         $item->setRelation('detay', Emlakdetay::where('dilkodu', app()->getLocale())->where('emlak_id', $item->id)->first());

@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Emlakfiyatlari extends Model
 {
-	use HasFactory;
+	use HasFactory, QueryCacheable;
 
 	protected $table = 'emlakfiyatlari';
 
@@ -30,4 +31,8 @@ class Emlakfiyatlari extends Model
 	//     set: fn ($value) => $value * 100 ,
 	//   );
 	// }
+
+  
+  public $cacheFor = 3600;
+  protected static $flushCacheOnUpdate = true;
 }
