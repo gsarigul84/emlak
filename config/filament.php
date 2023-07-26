@@ -25,7 +25,7 @@ return [
 	|
 	*/
 
-	'path' => env('FILAMENT_PATH', 'admin'),
+	'path' => env('FILAMENT_PATH', 'yonetim'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -328,7 +328,7 @@ return [
 			SubstituteBindings::class,
 			DispatchServingFilamentEvent::class,
 			MirrorConfigToSubpackages::class,
-			\Kenepa\TranslationManager\Http\Middleware\SetLanguage::class,
+			\Gsarigul84\TranslationManager\Http\Middleware\SetLanguage::class,
 		],
 	],
 

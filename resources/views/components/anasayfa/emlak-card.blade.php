@@ -34,7 +34,7 @@ class="group flex flex-col h-full bg-white border border-gray-200 shadow-sm roun
     {{ $emlak->il->iladi }} / {{ $emlak->ilce->ilceadi }}
     </span>
     <span class="w-full py-3 px-4 inline-flex justify-center items-center gap-2 rounded-br-xl font-medium bg-white text-gray-700 shadow-sm align-middle text-sm sm:p-4 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
-    {{ number_format($emlak->fiyat[session('dovizcinsi')]->fiyat, 0) }} {{ session('dovizcinsi')}}
+    {{ number_format($emlak->fiyat[session('dovizcinsi')]?->fiyat, 0) }} {{ session('dovizcinsi')}}
     </span>
   </div>
 </a>

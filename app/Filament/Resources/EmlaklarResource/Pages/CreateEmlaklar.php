@@ -8,6 +8,7 @@ use App\Models\Emlakdetay;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class CreateEmlaklar extends CreateRecord
 {
@@ -26,8 +27,12 @@ class CreateEmlaklar extends CreateRecord
 				];
 			}
 		}
-		DB::table('emlakozellikleri')->insert($ozellikler);
-		DB::table('emlaknitelikleri')->insert($nitelikler);
+    if(count($ozellikler) > 0){
+      DB::table('emlakozellikleri')->insert($ozellikler);
+    }
+    if(count($nitelikler) > 0){
+      DB::table('emlaknitelikleri')->insert($nitelikler);
+    }
 		DB::table('emlakfiyatlari')->insert($fiyatlar);
 
 		$diller = Diller::all();
@@ -35,7 +40,7 @@ class CreateEmlaklar extends CreateRecord
 			Emlakdetay::create([
 				'emlak_id' => $emlak->id,
 				'dilkodu' => $dil->dilkodu,
-				'sef' => $data['sef'][$dil->dilkodu],
+				'sef' => Str::slug($data['baslik'][$dil->dilkodu]),
 				'aciklama' => $data['aciklama'][$dil->dilkodu],
 				'baslik' => $data['baslik'][$dil->dilkodu],
 				'detay' => $data['detay'][$dil->dilkodu],

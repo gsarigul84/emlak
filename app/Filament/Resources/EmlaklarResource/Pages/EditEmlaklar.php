@@ -12,6 +12,7 @@ use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class EditEmlaklar extends EditRecord
 {
@@ -31,7 +32,7 @@ class EditEmlaklar extends EditRecord
 		$fiyatlar = Emlakfiyatlari::where('emlak_id', $data['id'])->get();
 		$icerikler = Emlakdetay::where('emlak_id', $data['id'])->get();
 		foreach ($icerikler as $icerik) {
-			$data['sef'][$icerik['dilkodu']] = $icerik['sef'];
+			$data['sef'][$icerik['dilkodu']] = Str::slug($icerik['baslik']);
 			$data['aciklama'][$icerik['dilkodu']] = $icerik['aciklama'];
 			$data['baslik'][$icerik['dilkodu']] = $icerik['baslik'];
 			$data['detay'][$icerik['dilkodu']] = $icerik['detay'];
@@ -76,7 +77,7 @@ class EditEmlaklar extends EditRecord
 			Emlakdetay::create([
 				'emlak_id' => $record->id,
 				'dilkodu' => $dil->dilkodu,
-				'sef' => $data['sef'][$dil->dilkodu],
+				'sef' => Str::slug($data['baslik'][$dil->dilkodu]),
 				'aciklama' => $data['aciklama'][$dil->dilkodu],
 				'baslik' => $data['baslik'][$dil->dilkodu],
 				'detay' => $data['detay'][$dil->dilkodu],

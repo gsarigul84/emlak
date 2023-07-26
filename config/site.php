@@ -1,4 +1,4 @@
 <?php
 return [
-  'dovizcinsi' => 'EUR',
+  'dovizcinsi' => 'Euro',
 ];

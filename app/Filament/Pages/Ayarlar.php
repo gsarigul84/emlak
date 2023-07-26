@@ -114,6 +114,8 @@ class Ayarlar extends Page
                 ->label(__('form.twitter_url')),
               Forms\Components\TextInput::make('linkedin_url')
                 ->label(__('form.linkedin_url')),
+              Forms\Components\TextInput::make('instagram_url')
+                ->label(__('form.instagram_url')),
             ]),
           Section::make(__('form.api_bilgileri'))
             ->schema([

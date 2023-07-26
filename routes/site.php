@@ -12,21 +12,21 @@ Route::group(['middleware' => ['dil','site']], function(){
  Route::group(['prefix' => 'tr', 'as' => 'tr.'], function () {
   Route::get('/', [AnasayfaController::class, 'index'])->name('home');
   Route::get('/icerik/{slug}', [IcerikController::class, 'index'])->name('icerik');
-  Route::get('/emlaklar', [EmlaklistesiController::class, 'index'])->name('emlaklistesi');
+  Route::get('/https://test.antalyadb.com/tr', [EmlaklistesiController::class, 'index'])->name('emlaklistesi');
   Route::get('/emlak-detay/{slug}/{id}', [EmlakdetayController::class, 'detay'])->name('emlakdetay');
   Route::get('/blog/{slug}', [BlogController::class, 'index'])->name('blog');
   Route::get('/post/{slug}/{id}', [PostController::class, 'detay'])->name('post');
   Route::get('/hakkimizda', [HakkimizdaController::class, 'index'])->name('hakkimizda');
   Route::get('/iletisim', [IletisimController::class, 'index'])->name('iletisim');
  });
- Route::group(['prefix' => 'en', 'as' => 'en.'], function () {
+ Route::group(['prefix' => 'ru', 'as' => 'ru.'], function () {
   Route::get('/', [AnasayfaController::class, 'index'])->name('home');
-  Route::get('/content/{slug}', [IcerikController::class, 'index'])->name('icerik');
-  Route::get('/properties', [EmlaklistesiController::class, 'index'])->name('emlaklistesi');
-  Route::get('/details/{slug}/{id}', [EmlakdetayController::class, 'detay'])->name('emlakdetay');
+  Route::get('/icerik/{slug}', [IcerikController::class, 'index'])->name('icerik');
+  Route::get('/emlak-listesi', [EmlaklistesiController::class, 'index'])->name('emlaklistesi');
+  Route::get('/emlak-detay/{slug}/{id}', [EmlakdetayController::class, 'detay'])->name('emlakdetay');
   Route::get('/blog/{slug}', [BlogController::class, 'index'])->name('blog');
   Route::get('/post/{slug}/{id}', [PostController::class, 'detay'])->name('post');
-  Route::get('/sitehakkimizda', [HakkimizdaController::class, 'index'])->name('hakkimizda');
-  Route::get('/siteiletisim', [IletisimController::class, 'index'])->name('iletisim');
+  Route::get('/hakkimizda', [HakkimizdaController::class, 'index'])->name('hakkimizda');
+  Route::get('/iletisim', [IletisimController::class, 'index'])->name('iletisim');
  });
 });

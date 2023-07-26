@@ -12,9 +12,9 @@ return new class() extends Migration
 	public function up(): void
 	{
 		//
-		Schema::table('emlak', function (Blueprint $table) {
-			$table->integer('semt_id')->after('ilce_id');
-		});
+		// Schema::table('emlak', function (Blueprint $table) {
+		// 	$table->integer('semt_id')->after('ilce_id');
+		// });
 		Schema::table('mahalleler', function (Blueprint $table) {
 			$table->integer('semt_id')->after('ilce_id');
 		});
@@ -26,9 +26,9 @@ return new class() extends Migration
 	public function down(): void
 	{
 		//
-		Schema::table('emlak', function (Blueprint $table) {
-			$table->dropColumn('semt_id');
-		});
+		// Schema::table('emlak', function (Blueprint $table) {
+		// 	$table->dropColumn('semt_id');
+		// });
 		Schema::table('mahalleler', function (Blueprint $table) {
 			$table->dropColumn('semt_id');
 		});

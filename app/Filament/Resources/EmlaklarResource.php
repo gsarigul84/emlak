@@ -65,7 +65,6 @@ class EmlaklarResource extends Resource
 									'emlaktipi' => __('emlaktipleri.'.$tip->id),
 								])->pluck('emlaktipi', 'id');
 							}
-
 							return [];
 						})
 						->required(),
@@ -172,6 +171,13 @@ class EmlaklarResource extends Resource
 				->schema([
 					Forms\Components\TextInput::make('ilan_no')
 						->label(__('form.ilan_no')),
+          Forms\Components\Select::make('durum')
+						->options([
+							1 => __('form.aktif'),
+							0 => __('form.pasif'),
+						])
+						->label(__('form.durum'))
+						->required()
 				]),
 		];
 	}
@@ -214,14 +220,14 @@ class EmlaklarResource extends Resource
 			$schema[] = Forms\Components\Tabs\Tab::make('tab_'.$dil->id)
 				->label($dil->diladi)
 				->schema([
-					Forms\Components\TextInput::make('sef.'.$dil->dilkodu)
-						->label(__('form.sefurl'))
-						->required(),
-					Forms\Components\TextInput::make('aciklama.'.$dil->dilkodu)
-						->label(__('form.aciklama'))
-						->required(),
+					// Forms\Components\TextInput::make('sef.'.$dil->dilkodu)
+					// 	->label(__('form.sefurl'))
+					// 	->required(),
 					Forms\Components\TextInput::make('baslik.'.$dil->dilkodu)
-						->label(__('form.baslik'))
+          ->label(__('form.baslik'))
+          ->required(),
+					Forms\Components\TextInput::make('aciklama.'.$dil->dilkodu)
+						->label(__('form.kisa-aciklama'))
 						->required(),
 					Forms\Components\RichEditor::make('detay.'.$dil->dilkodu)
 						->label(__('form.icerik'))

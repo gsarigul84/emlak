@@ -13,8 +13,9 @@ return [
     */
 
     'available_locales' => [
-        ['code' => 'en', 'name' => 'English', 'flag' => 'gb'],
-        ['code' => 'tr', 'name' => 'Türkçe', 'flag' => 'tr'],
+      ['code' => 'tr', 'name' => 'Türkçe', 'flag' => 'tr'],
+      ['code' => 'en', 'name' => 'English', 'flag' => 'gb'],
+      ['code' => 'ru', 'name' => 'Russian', 'flag' => 'ru'],
     ],
 
     /*

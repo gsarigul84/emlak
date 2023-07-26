@@ -15,7 +15,7 @@ return new class() extends Migration
 			$table->id();
 			$table->integer('emlak_id');
 			$table->integer('nitelik_id');
-			$table->string('deger');
+			$table->string('deger')->nullable();
 			$table->timestamps();
 		});
 	}
