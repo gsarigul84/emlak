@@ -22,5 +22,5 @@ return [
   'iletisim' => 'İletişim',
   'cerez_politikasi' => 'Çerez politikası',
   'kapat' => 'Kapat',
-  
+
 ];

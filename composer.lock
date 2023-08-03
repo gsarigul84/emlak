@@ -1350,16 +1350,16 @@
         },
         {
             "name": "gsarigul84/translation-manager",
-            "version": "v0.1.1",
+            "version": "v0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/gsarigul84/translation-manager.git",
-                "reference": "a9bf035ee768ea6cdf0d79f17d6cfba2000a6aec"
+                "reference": "806b51075af3a6d24006bce90b00a7b6398d476b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gsarigul84/translation-manager/zipball/a9bf035ee768ea6cdf0d79f17d6cfba2000a6aec",
-                "reference": "a9bf035ee768ea6cdf0d79f17d6cfba2000a6aec",
+                "url": "https://api.github.com/repos/gsarigul84/translation-manager/zipball/806b51075af3a6d24006bce90b00a7b6398d476b",
+                "reference": "806b51075af3a6d24006bce90b00a7b6398d476b",
                 "shasum": ""
             },
             "require": {
@@ -1399,9 +1399,9 @@
                 "translation"
             ],
             "support": {
-                "source": "https://github.com/gsarigul84/translation-manager/tree/v0.1.1"
+                "source": "https://github.com/gsarigul84/translation-manager/tree/v0.1.2"
             },
-            "time": "2023-07-26T16:03:14+00:00"
+            "time": "2023-07-27T18:32:50+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -4613,16 +4613,16 @@
         },
         {
             "name": "spatie/image-optimizer",
-            "version": "1.7.0",
+            "version": "1.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/image-optimizer.git",
-                "reference": "9551e2df936656bda3567901a033579345d52e88"
+                "reference": "af179994e2d2413e4b3ba2d348d06b4eaddbeb30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/image-optimizer/zipball/9551e2df936656bda3567901a033579345d52e88",
-                "reference": "9551e2df936656bda3567901a033579345d52e88",
+                "url": "https://api.github.com/repos/spatie/image-optimizer/zipball/af179994e2d2413e4b3ba2d348d06b4eaddbeb30",
+                "reference": "af179994e2d2413e4b3ba2d348d06b4eaddbeb30",
                 "shasum": ""
             },
             "require": {
@@ -4662,9 +4662,9 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/image-optimizer/issues",
-                "source": "https://github.com/spatie/image-optimizer/tree/1.7.0"
+                "source": "https://github.com/spatie/image-optimizer/tree/1.7.1"
             },
-            "time": "2023-07-22T16:28:37+00:00"
+            "time": "2023-07-27T07:57:32+00:00"
         },
         {
             "name": "spatie/invade",
@@ -4734,16 +4734,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "10.11.1",
+            "version": "10.11.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "6ef22a3a0df6ca0cfc59fe48fde42d30e2e90d81"
+                "reference": "bac32801073bd9446277cdeb174cf4327ea28aef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/6ef22a3a0df6ca0cfc59fe48fde42d30e2e90d81",
-                "reference": "6ef22a3a0df6ca0cfc59fe48fde42d30e2e90d81",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/bac32801073bd9446277cdeb174cf4327ea28aef",
+                "reference": "bac32801073bd9446277cdeb174cf4327ea28aef",
                 "shasum": ""
             },
             "require": {
@@ -4827,7 +4827,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-medialibrary/issues",
-                "source": "https://github.com/spatie/laravel-medialibrary/tree/10.11.1"
+                "source": "https://github.com/spatie/laravel-medialibrary/tree/10.11.2"
             },
             "funding": [
                 {
@@ -4839,7 +4839,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-07-25T08:42:59+00:00"
+            "time": "2023-07-27T08:00:59+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",

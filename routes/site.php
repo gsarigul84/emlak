@@ -26,7 +26,7 @@ Route::group(['middleware' => ['dil','site']], function(){
   Route::get('/emlak-detay/{slug}/{id}', [EmlakdetayController::class, 'detay'])->name('emlakdetay');
   Route::get('/blog/{slug}', [BlogController::class, 'index'])->name('blog');
   Route::get('/post/{slug}/{id}', [PostController::class, 'detay'])->name('post');
-  Route::get('/hakkimizda', [HakkimizdaController::class, 'index'])->name('hakkimizda');
-  Route::get('/iletisim', [IletisimController::class, 'index'])->name('iletisim');
+  Route::get('/o-kompanii', [HakkimizdaController::class, 'index'])->name('hakkimizda');
+  Route::get('/kontakty', [IletisimController::class, 'index'])->name('iletisim');
  });
 });

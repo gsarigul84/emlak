@@ -36,12 +36,11 @@
             <span>{{ __('nitelik.'.$n) }}</span>
             <span class="font-bold">
               @isset($emlak->nitelikler[$n])
-              @if(in_array($nitelikler[$n]['tip'], ['coklusecmeli','coktansecmeli']) )
-              {{ 'nitelikdegeri.'.$n.'-deger-'.$emlak->nitelikler[$n]->deger }}
-
-              @else
-              {{ $emlak->nitelikler[$n]->deger }}
-              @endif
+                @if(in_array($nitelikler[$n]['tip'], ['coklusecmeli','coktansecmeli']) )
+                  {{ 'nitelikdegeri.'.$n.'-deger-'.$emlak->nitelikler[$n]->deger }}
+                @else
+                  {{ $emlak_nitelikleri[$n]->deger }}
+                @endif
               @endisset
             </span>
           </li>
@@ -77,14 +76,14 @@
                   <li class="inline-flex items-center flex justify-between gap-x-2 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white">
                     <span 
                       class="
-                      @if(!isset($emlak->ozellikler[$ozellik->id]))
+                      @if(!isset($emlak_ozellikleri[$ozellik->id]))
                         text-gray-400 dark:text-gray-500
                       @endif
                       "
                     >
                       {{ __('ozellik.'.$ozellik->id) }}
                     </span>
-                    @if(isset($emlak->ozellikler[$ozellik->id]))
+                    @if(isset($emlak_ozellikleri[$ozellik->id]))
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-green-500 w-5 h-5"><title>check-bold</title><path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z" /></svg>
                     @endif
                   </li>
@@ -95,18 +94,18 @@
             </div>
           </div>
           <div id="tab_sokak_gorunumu" class="hidden" role="tabpanel" aria-labelledby="tabs-with-underline-item-2">
-            <div id="map"></div>
+            <div id="map" class="h-[500px] w-full"></div>
           </div>
         </div>
         
       </div>
     </div>
   </div>
-</section>
+</section> 
 @if($maps_key != '')
 <script type="text/javascript">
   function initMap() {
-    const myLatLng = { lat: {{ $emlak->koordinatlar['latitude'] }}, lng: {{ $emlak->koordinatlar['longitude'] }} };
+    const myLatLng = { lat: {{ $emlak->koordinatlar['lat'] }}, lng: {{ $emlak->koordinatlar['lng'] }} };
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 14,
       center: myLatLng,

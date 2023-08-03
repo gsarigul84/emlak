@@ -8,7 +8,7 @@ use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Ayarlar extends Model
 {
-	use HasFactory, QueryCacheable;
+	use HasFactory;
   
 	protected $table = 'ayarlar';
   

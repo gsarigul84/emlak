@@ -11,7 +11,7 @@ use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Emlaklar extends Model implements HasMedia
 {
-	use HasFactory, QueryCacheable, InteractsWithMedia;
+	use HasFactory,  InteractsWithMedia;
 
 	protected $table = 'emlak';
 

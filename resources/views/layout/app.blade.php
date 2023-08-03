@@ -14,6 +14,7 @@
     @include('layout.header')
     @yield('content')
   </div>
+  <x-cookie-consent />
   @include('layout.footer')
 </body>
 </html>

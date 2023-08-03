@@ -80,4 +80,6 @@ return [
 	'google_analytics_key' => 'Google Analytics anahtarı',
 	'api_bilgileri' => 'API bilgileri',
 	'ara' => 'Ara',
+	'dovizadi' => 'Döviz adı',
+	'sembol' => 'Sembol',
 ];

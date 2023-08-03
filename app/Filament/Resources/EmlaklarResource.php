@@ -224,14 +224,11 @@ class EmlaklarResource extends Resource
 					// 	->label(__('form.sefurl'))
 					// 	->required(),
 					Forms\Components\TextInput::make('baslik.'.$dil->dilkodu)
-          ->label(__('form.baslik'))
-          ->required(),
+          ->label(__('form.baslik')),
 					Forms\Components\TextInput::make('aciklama.'.$dil->dilkodu)
-						->label(__('form.kisa-aciklama'))
-						->required(),
+						->label(__('form.kisa-aciklama')),
 					Forms\Components\RichEditor::make('detay.'.$dil->dilkodu)
-						->label(__('form.icerik'))
-						->required(),
+						->label(__('form.icerik')),
 				]);
 		}
 

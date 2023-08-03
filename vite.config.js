@@ -11,7 +11,7 @@ export default defineConfig({
     server: {
       hmr: {
         protocol: 'ws',
-        host: 'antalyadb.test',
+        host: 'test.antalyadb.com',
       }
     }
 });

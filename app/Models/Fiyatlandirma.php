@@ -9,7 +9,7 @@ use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Fiyatlandirma extends Model
 {
-	use HasFactory, QueryCacheable;
+	use HasFactory;
 
 	protected $table = 'fiyatlandirma';
 

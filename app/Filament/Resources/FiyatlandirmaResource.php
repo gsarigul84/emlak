@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\FiyatlandirmaResource\Pages;
 use App\Models\Fiyatlandirma;
+use App\Models\Emlakfiyatlari;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -38,7 +39,7 @@ class FiyatlandirmaResource extends Resource
 				->maxLength(255);
 		foreach ($diller as $dil) {
 			$schema[] = Forms\Components\TextInput::make('semboladlari.'.$dil->dilkodu)
-				->label(__('form.sembol').' - '.$dil->diladi)
+				->label(__('form.dovizadi').' - '.$dil->diladi)
 				->required()
 				->maxLength(255);
 		}
@@ -77,7 +78,11 @@ class FiyatlandirmaResource extends Resource
 						return $data;
 					})
 					->using(function (Model $record, array $data): Model {
+            $eskisembol = $record->sembol;
 						$record->update($data);
+            Emlakfiyatlari::where('sembol',$eskisembol)->update([
+              'sembol' => $data['sembol']
+            ]);
 						LanguageLine::where('group', 'fiyatlandirma')
 							->where('key', $record->id)
 							->update([

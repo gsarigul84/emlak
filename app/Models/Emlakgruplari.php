@@ -9,7 +9,7 @@ use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Emlakgruplari extends Model
 {
-	use HasFactory, QueryCacheable;
+	use HasFactory;
 
 	protected $table = 'emlakgruplari';
 

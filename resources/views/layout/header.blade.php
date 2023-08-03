@@ -4,9 +4,9 @@
       <div 
         class="hs-dropdown [--strategy:static] sm:[--strategy:fixed] [--adaptive:none] sm:[--trigger:hover] sm:py-4"
         x-data="{
-          setDovizcinsi(dc){
+          setDovizcinsi(dc, id){
             var vm = this
-            axios.get('{{ route('set-doviz-cinsi') }}?dovizcinsi=' + dc)
+            axios.get('{{ route('set-doviz-cinsi') }}?dovizcinsi=' + dc + '&did=' + id)
               .then(({ data }) => {
                 if(data.status == 1){
              /*     vm.dovizCinsi = data.dovizcinsi
@@ -15,7 +15,7 @@
                 }
             })
           },
-          dovizCinsi: '{{ session('dovizcinsi') }}',
+          dovizCinsi: '{{ session('dcbaslik') }}',
         }"
         >
         <button type="button" class="flex items-center w-full text-gray-800 hover:text-gray-500 font-medium dark:text-gray-200 dark:hover:text-gray-400">
@@ -30,7 +30,7 @@
           <a 
             class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" 
             href="javascript:void(0)"
-            x-on:click="setDovizcinsi('{{ $dc->sembol }}')"
+            x-on:click="setDovizcinsi('{{ $dc->sembol }}', {{ $dc->id }})"
             >
             {{ __('fiyatlandirma.'.$dc->id) }}
           </a>
@@ -47,11 +47,13 @@
         </button>
         <div class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 sm:w-48 hidden z-10 bg-white sm:shadow-md rounded-lg p-2 dark:bg-gray-800 sm:dark:border dark:border-gray-700 dark:divide-gray-700 before:absolute top-full sm:border before:-top-5 before:left-0 before:w-full before:h-5">
           @isset($diller)
-          @foreach($diller as $dil)
-          <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" href="{{ route($dil->dilkodu.'.home') }}">
-            {{ $dil->diladi }}
-          </a>
-          @endforeach
+            @foreach($diller as $dil)
+            <a
+              class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" 
+              href="{{ isset($url_listesi[$dil->dilkodu]) ? $url_listesi[$dil->dilkodu] : route($dil->dilkodu.'.home') }}">
+              {{ $dil->diladi }}
+            </a>
+            @endforeach
           @endisset
         </div>
       </div>

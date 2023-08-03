@@ -11,6 +11,7 @@ class SeceneklerController extends Controller
   public function dovizCinsi(){
     if(request()->has('dovizcinsi')){
       session(['dovizcinsi' => request('dovizcinsi')]);
+      session(['dcbaslik' => __('fiyatlandirma.'.request('did'))]);
     }
     return response()->json([
       'status' => 1,
@@ -21,7 +22,6 @@ class SeceneklerController extends Controller
 
   public function cookieConsent(){
     session(['cookie-consent' => true]);
-    
     return response()->json([
       'status' => 1,
       'message' => 'Çerez politikası kabul edildi.',
