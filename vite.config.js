@@ -11,7 +11,7 @@ export default defineConfig({
     server: {
       hmr: {
         protocol: 'ws',
-        host: 'test.antalyadb.com',
+        host: 'emlak.test',
       }
     }
 });
